@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiplomAttempt2.CharacterCreationPage"
+             Title="Создание персонажа">
+    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <HorizontalStackLayout>
+            <Label Text="Имя" />
+            <Entry Placeholder="Тёмный соблазн" x:Name="NameEntry"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Раса" />
+            <Entry Placeholder="Драконорождённый" x:Name="RaceEntry"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Класс" />
+            <Entry Placeholder="Чародей" x:Name="ClassEntry"/>
+        </HorizontalStackLayout>
+        <Button Text="Завершить" Clicked="EndCreation"/>
+    </VerticalStackLayout>
+</ContentPage>
