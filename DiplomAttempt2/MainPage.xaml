@@ -5,6 +5,6 @@
     <StackLayout FlowDirection="LeftToRight" Orientation="Vertical" Spacing="20" Padding="10" HorizontalOptions="Center" VerticalOptions="Center">
         <Button Text="Игрок" Clicked="ToPlayerPage"/>
         <Button Text="Мастер" />
-        <Button Text="Энциклопедия" />
+        <Button Text="Энциклопедия" Clicked="ToPackageContentPage"/>
     </StackLayout>
 </ContentPage>

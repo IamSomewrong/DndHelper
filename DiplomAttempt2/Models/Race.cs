@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DiplomAttempt2.Models
 {
-    public class CharClass
+    public class Race
     {
+        public string Name { get; set; }
     }
 }

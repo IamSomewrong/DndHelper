@@ -1,5 +1,7 @@
 ﻿namespace DiplomAttempt2;
 
+
+
 public partial class MainPage : ContentPage
 {
 	public MainPage()
@@ -11,5 +13,12 @@ public partial class MainPage : ContentPage
 	{
 		await Navigation.PushAsync(new PlayerPage());
 	}
+
+    public async void ToPackageContentPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PackageContentPage());
+    }
+
+
 }
 

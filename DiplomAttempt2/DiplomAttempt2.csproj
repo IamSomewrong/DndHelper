@@ -57,10 +57,16 @@
 	  <Compile Update="CharacterCreationPage.xaml.cs">
 	    <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="PackageContentPage.xaml.cs">
+	    <DependentUpon>PackageContentPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="CharacterCreationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PackageContentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PlayerPage.xaml">

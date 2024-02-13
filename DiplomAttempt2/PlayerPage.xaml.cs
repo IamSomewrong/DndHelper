@@ -5,7 +5,7 @@ namespace DiplomAttempt2;
 
 public partial class PlayerPage : ContentPage
 {
-	public ObservableCollection<Character> Characters;
+	public ObservableCollection<Character> Characters {  get; set; }
 
     public PlayerPage()
 	{
