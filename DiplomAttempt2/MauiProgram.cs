@@ -1,4 +1,6 @@
-﻿namespace DiplomAttempt2;
+﻿using Microsoft.Maui.LifecycleEvents;
+
+namespace DiplomAttempt2;
 
 public static class MauiProgram
 {
@@ -13,7 +15,6 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 				fonts.AddFont("Ubuntu-Regular.ttf", "UbuntuRegular");
 			});
-
-		return builder.Build();
+            return builder.Build();
 	}
 }

@@ -13,6 +13,23 @@ public partial class PackageContentPage : ContentPage
 
     public async void CreatePackage(object sender, EventArgs e)
     {
-        //диалог с названием и создание пакета
+        var name = await DisplayPromptAsync("Новый пакет", "Введите название:");
+        App.Packages.Packages.Add(new Package() { Name = name });
+#if ANDROID
+        string str = JsonSerializer.Serialize<SerializablePackages>(App.Packages);
+        FileStream fs = new(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "/packs.json", FileMode.Create);
+        StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8);
+        sw.Write(str);
+        sw.Close();
+        fs.Close();
+#elif WINDOWS
+        string str = JsonSerializer.Serialize<SerializablePackages>(App.Packages);
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\packs.json";
+        FileStream fs = new(path, FileMode.Create);
+        StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8);
+        sw.Write(str);
+        sw.Close();
+        fs.Close();
+#endif
     }
 }
