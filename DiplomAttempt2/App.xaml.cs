@@ -1,4 +1,5 @@
 ﻿using DiplomAttempt2.Models;
+using System.Collections.ObjectModel;
 using System.Text.Json;
 
 namespace DiplomAttempt2;
@@ -6,54 +7,19 @@ namespace DiplomAttempt2;
 public partial class App : Application
 {
 	public static SerializablePackages Packages;
+    public static string _fileName = FileSystem.AppDataDirectory + "/packs.json";
     public App()
 	{
 		InitializeComponent();
-#if ANDROID
-            try 
-            {
-                FileStream fs = new(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "packs.json", FileMode.OpenOrCreate);
-                StreamReader sr = new StreamReader(fs, System.Text.Encoding.UTF8);
-                Packages = JsonSerializer.Deserialize<SerializablePackages>(sr.ReadToEnd());
-                sr.Close();
-                fs.Close();
-            }
-            catch (JsonException) 
-            {
-                Packages = new SerializablePackages();
-                Packages.Packages = new System.Collections.ObjectModel.ObservableCollection<Package>();
-                Packages.Packages.Add(new Package() { Name = "Тестовый пакет" });
-                string str = JsonSerializer.Serialize<SerializablePackages>(Packages);
-                FileStream fs = new(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal) + "/packs.json", FileMode.Create);
-                StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8);
-                sw.Write(str);
-                sw.Close();
-                fs.Close();
-            }
-#elif WINDOWS
-            try
-            {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\packs.json";
-                FileStream fs = new(path, FileMode.OpenOrCreate);
-                StreamReader sr = new StreamReader(fs, System.Text.Encoding.UTF8);
-                Packages = JsonSerializer.Deserialize<SerializablePackages>(sr.ReadToEnd());
-                sr.Close();
-                fs.Close();
-            }
-            catch (JsonException) 
-            {
-                Packages = new SerializablePackages();
-                Packages.Packages = new System.Collections.ObjectModel.ObservableCollection<Package>();
-                Packages.Packages.Add(new Package() { Name = "Тестовый пакет" });
-                string str = JsonSerializer.Serialize<SerializablePackages>(Packages);
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\packs.json";
-                FileStream fs = new(path, FileMode.Create);
-                StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8);
-                sw.Write(str);
-                sw.Close();
-                fs.Close();
-            }
-#endif
+        Packages = new SerializablePackages() { Packages = new ObservableCollection<Package>() };
+        if (File.Exists(_fileName) == false)
+        {
+            var writeData = JsonSerializer.Serialize(Packages);
+            File.WriteAllText(_fileName, writeData);
+        }
+        var rawData = File.ReadAllText(_fileName);
+        Packages = JsonSerializer.Deserialize<SerializablePackages>(rawData);
+
         MainPage = new AppShell();
 	}
 }
