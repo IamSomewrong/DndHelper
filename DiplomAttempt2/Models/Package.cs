@@ -12,5 +12,8 @@ namespace DiplomAttempt2.Models
         public string Name { get; set; }
         public ObservableCollection<Race> Races { get; set; }
         public ObservableCollection<Class> Classes { get; set; }
+        public ObservableCollection<Enemy> Enemies { get; set; }
+        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Spell> Spells { get; set; }
     }
 }

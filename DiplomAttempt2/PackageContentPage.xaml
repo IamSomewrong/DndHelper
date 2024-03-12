@@ -7,7 +7,7 @@
 		<ToolbarItem Text="Создать" Clicked="CreatePackage"/>
 	</ContentPage.ToolbarItems>
     <VerticalStackLayout>
-        <ListView x:Name="PackageView">
+        <ListView x:Name="PackageView" ItemTapped="OpenPackage">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
