@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DiplomAttempt2.Models
 {
-    public class Feat
+    public class Subclass
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ObservableCollection<(string, string)> Traits { get; set; }
+        public ObservableCollection<ClassFeature> ClassFeatures { get; set; }
     }
 }

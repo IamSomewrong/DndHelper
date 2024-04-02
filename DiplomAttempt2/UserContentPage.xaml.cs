@@ -3,9 +3,9 @@ using System.Text.Json;
 using DiplomAttempt2.Models;
 
 namespace DiplomAttempt2;
-public partial class PackageContentPage : ContentPage
+public partial class UserContentPage : ContentPage
 {
-    public PackageContentPage()
+    public UserContentPage()
 	{
 		InitializeComponent();
         PackageView.ItemsSource = App.Packages;
@@ -13,8 +13,8 @@ public partial class PackageContentPage : ContentPage
 
     public async void CreatePackage(object sender, EventArgs e)
     {
-        var name = await DisplayPromptAsync("Новый пакет", "Введите название:");
-        if(name.Length > 0) 
+        string name = await DisplayPromptAsync("Новый пакет", "Введите название:");
+        if(!String.IsNullOrWhiteSpace(name)) 
         {
             Package package = new Package() { 
                 Name = name, 

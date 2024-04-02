@@ -28,12 +28,28 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+		<AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+		<AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+		<AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
+		<GenerateTestArtifacts>True</GenerateTestArtifacts>
+		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 	</PropertyGroup>
   
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	  <AndroidUseAapt2>True</AndroidUseAapt2>
 	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidKeyStore>False</AndroidKeyStore>
+	  <RunAOTCompilation>False</RunAOTCompilation>
+	</PropertyGroup>
+  
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidKeyStore>False</AndroidKeyStore>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -54,17 +70,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\MaterialIconsOutlined-Regular.otf" />
+	  <None Remove="Resources\Fonts\Raleway-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Raleway-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Raleway-SemiBold.ttf" />
 	  <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
+	  <None Remove="Resources\Images\edit_pen.svg" />
 	  <None Remove="Resources\Images\heart_empty.svg" />
 	  <None Remove="Resources\Images\heart_full.svg" />
+	  <None Remove="Resources\Images\logo.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="CharacterCreationPage.xaml.cs">
 	    <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="PackageContentPage.xaml.cs">
-	    <DependentUpon>PackageContentPage.xaml</DependentUpon>
+	  <Compile Update="UserContentPage.xaml.cs">
+	    <DependentUpon>UserContentPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -72,7 +94,7 @@
 	  <MauiXaml Update="CharacterCreationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PackageContentPage.xaml">
+	  <MauiXaml Update="UserContentPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PackagePage.xaml">
