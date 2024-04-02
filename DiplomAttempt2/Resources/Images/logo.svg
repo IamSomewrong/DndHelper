@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_5" data-name="Слой 5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320.86 370.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_Безымянный_градиент_63);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#_Безымянный_градиент_37-3);
+      }
+
+      .cls-3 {
+        fill: url(#_Безымянный_градиент_66);
+      }
+
+      .cls-4 {
+        fill: url(#_Безымянный_градиент_64);
+      }
+
+      .cls-5 {
+        fill: url(#_Безымянный_градиент_37);
+      }
+
+      .cls-6 {
+        fill: url(#_Безымянный_градиент_37-2);
+      }
+
+      .cls-7 {
+        fill: url(#_Безымянный_градиент_19-2);
+      }
+
+      .cls-8 {
+        fill: url(#_Безымянный_градиент_65);
+      }
+
+      .cls-9 {
+        fill: url(#_Безымянный_градиент_62);
+      }
+
+      .cls-10 {
+        fill: url(#_Безымянный_градиент_19);
+      }
+    </style>
+    <linearGradient id="_Безымянный_градиент_66" data-name="Безымянный градиент 66" x1="14.05" y1="72.71" x2="144.75" y2="39.06" gradientUnits="userSpaceOnUse">
+      <stop offset=".18" stop-color="#9190c6"/>
+      <stop offset=".29" stop-color="#8988bc"/>
+      <stop offset=".47" stop-color="#7474a4"/>
+      <stop offset=".69" stop-color="#52527b"/>
+      <stop offset=".96" stop-color="#242544"/>
+      <stop offset="1" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_63" data-name="Безымянный градиент 63" x1="328.38" y1="111.4" x2="288.46" y2="242.1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9190c6"/>
+      <stop offset=".22" stop-color="#7171a0"/>
+      <stop offset=".58" stop-color="#444469"/>
+      <stop offset=".85" stop-color="#272847"/>
+      <stop offset="1" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_64" data-name="Безымянный градиент 64" x1="272.76" y1="49.21" x2="138.93" y2="34.34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9190c6"/>
+      <stop offset=".15" stop-color="#8584b7"/>
+      <stop offset=".44" stop-color="#656592"/>
+      <stop offset=".84" stop-color="#333456"/>
+      <stop offset="1" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_19" data-name="Безымянный градиент 19" x1="160.43" y1="299.4" x2="320.86" y2="299.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9190c6"/>
+      <stop offset=".58" stop-color="#4b4b73"/>
+      <stop offset="1" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_65" data-name="Безымянный градиент 65" x1="579.84" y1="111.4" x2="539.92" y2="242.1" gradientTransform="translate(572.32) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9190c6"/>
+      <stop offset=".28" stop-color="#7373a3"/>
+      <stop offset=".89" stop-color="#2a2b4b"/>
+      <stop offset="1" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_19-2" data-name="Безымянный градиент 19" x1="411.89" y1="299.4" x2="572.32" y2="299.4" gradientTransform="translate(572.32) rotate(-180) scale(1 -1)" xlink:href="#_Безымянный_градиент_19"/>
+    <linearGradient id="_Безымянный_градиент_62" data-name="Безымянный градиент 62" x1="69.4" y1="149.08" x2="251.46" y2="149.08" gradientUnits="userSpaceOnUse">
+      <stop offset=".18" stop-color="#9190c6"/>
+      <stop offset=".29" stop-color="#8d8cc1"/>
+      <stop offset=".41" stop-color="#8281b4"/>
+      <stop offset=".53" stop-color="#706f9e"/>
+      <stop offset=".65" stop-color="#575780"/>
+      <stop offset=".77" stop-color="#363759"/>
+      <stop offset=".86" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_37" data-name="Безымянный градиент 37" x1="162.54" y1="199.3" x2="153.15" y2="327.65" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9190c6"/>
+      <stop offset=".16" stop-color="#8d8cc1"/>
+      <stop offset=".33" stop-color="#8281b4"/>
+      <stop offset=".51" stop-color="#706f9e"/>
+      <stop offset=".69" stop-color="#575780"/>
+      <stop offset=".87" stop-color="#363759"/>
+      <stop offset="1" stop-color="#1d1e3b"/>
+    </linearGradient>
+    <linearGradient id="_Безымянный_градиент_37-2" data-name="Безымянный градиент 37" x1="170.61" y1="144.82" x2="37.57" y2="154.99" xlink:href="#_Безымянный_градиент_37"/>
+    <linearGradient id="_Безымянный_градиент_37-3" data-name="Безымянный градиент 37" x1="148.36" y1="128.25" x2="292.36" y2="161.12" xlink:href="#_Безымянный_градиент_37"/>
+  </defs>
+  <polygon class="cls-3" points="160.43 0 160.43 70.04 0 91.29 160.43 0"/>
+  <path class="cls-1" d="m320.86,271.17c-23.13-14.35-46.27-28.7-69.4-43.05,23.13-45.61,46.27-91.22,69.4-136.83v179.88Z"/>
+  <polygon class="cls-4" points="160.43 0 160.43 70.04 320.86 91.29 160.43 0"/>
+  <path class="cls-10" d="m251.46,228.12c23.13,14.35,46.27,28.7,69.4,43.05-53.48,33.17-106.95,66.34-160.43,99.51,30.34-47.52,60.69-95.04,91.03-142.56Z"/>
+  <path class="cls-8" d="m0,271.17c23.13-14.35,46.27-28.7,69.4-43.05C46.27,182.51,23.13,136.9,0,91.29v179.88Z"/>
+  <path class="cls-7" d="m69.4,228.12c-23.13,14.35-46.27,28.7-69.4,43.05,53.48,33.17,106.95,66.34,160.43,99.51-30.34-47.52-60.69-95.04-91.03-142.56Z"/>
+  <polygon class="cls-9" points="69.4 228.12 251.46 228.12 160.43 70.04 69.4 228.12"/>
+  <polygon class="cls-5" points="69.4 228.12 251.46 228.12 160.43 370.68 69.4 228.12"/>
+  <polygon class="cls-6" points="160.43 70.04 69.4 228.12 0 91.29 160.43 70.04"/>
+  <polygon class="cls-2" points="160.43 70.04 251.46 228.12 320.86 91.29 160.43 70.04"/>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiplomAttempt2.UserContentPage"
+             Style="{StaticResource pageStyle}"
+             Title="Пакеты">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="CreatePackage">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe145;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <ListView x:Name="PackageView" ItemTapped="OpenPackage">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <FlexLayout Style="{StaticResource listItemStyle}">
+                            <Label FlexLayout.Grow="1" Text="{Binding Name}" Style="{StaticResource listItemTextStyle}"/>
+                            <ImageButton HorizontalOptions="End" Padding="10">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="MaterialIconsOutlined-Regular"
+                                                     Glyph="&#xe3c9;"/>
+                                </ImageButton.Source>
+                            </ImageButton>
+                        </FlexLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

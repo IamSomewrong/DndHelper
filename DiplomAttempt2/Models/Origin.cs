@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DiplomAttempt2.Models
 {
-    public enum Skills
+    public enum Skill
     {
         Acrobatics,
         AnimalHandling,
@@ -33,7 +33,7 @@ namespace DiplomAttempt2.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ObservableCollection<Skills> Skills { get; set; }
+        public ObservableCollection<Skill> Skills { get; set; }
         public ObservableCollection<Gear> GearsForInventory { get; set; }
         public ObservableCollection<Gear> Gears {  get; set; }
         public ObservableCollection<(string, string)> Traits { get; set; }
