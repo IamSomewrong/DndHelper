@@ -8,25 +8,26 @@
         <ToolbarItem Clicked="CreatePackage">
             <ToolbarItem.IconImageSource>
                 <FontImageSource
+                    Color="{StaticResource Secondary}"
                     FontFamily="MaterialIconsOutlined-Regular"
                     Glyph="&#xe145;" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
+        <!--<ToolbarItem Clicked="EnableEditMode">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource x:Name="EditModeImage"
+                    Color="{StaticResource Secondary}"
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe3c9;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>-->
     </ContentPage.ToolbarItems>
-    <ScrollView>
-        <ListView x:Name="PackageView" ItemTapped="OpenPackage">
+    <ScrollView HorizontalOptions="Fill" Margin="10">
+        <ListView x:Name="PackageView" ItemTapped="ChoosePackage">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <FlexLayout Style="{StaticResource listItemStyle}">
-                            <Label FlexLayout.Grow="1" Text="{Binding Name}" Style="{StaticResource listItemTextStyle}"/>
-                            <ImageButton HorizontalOptions="End" Padding="10">
-                                <ImageButton.Source>
-                                    <FontImageSource FontFamily="MaterialIconsOutlined-Regular"
-                                                     Glyph="&#xe3c9;"/>
-                                </ImageButton.Source>
-                            </ImageButton>
-                        </FlexLayout>
+                        <Label Text="{Binding Name}" Style="{StaticResource listItemTextStyle}"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -15,18 +15,20 @@
         <Setter Property="Shell.BackgroundColor" Value="{StaticResource Tertiary}"/>
         <Setter Property="Shell.TitleColor" Value="{StaticResource Secondary}"/>
     </Style>
-    <Style x:Key="listItemStyle" TargetType="FlexLayout">
-        <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
-        <Setter Property="HorizontalOptions" Value="Fill"/>
-        <Setter Property="Padding"  Value="15"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="Direction" Value="Row"/>
-    </Style>
     <Style x:Key="listItemTextStyle" TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
         <Setter Property="FontFamily" Value="RalewayRegular"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="categoryButtonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource Secondary}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+        <Setter Property="FontFamily" Value="RalewayRegular"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="FontSize" Value="20"/>
     </Style>
 </ResourceDictionary>

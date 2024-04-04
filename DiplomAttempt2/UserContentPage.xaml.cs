@@ -5,16 +5,18 @@ using DiplomAttempt2.Models;
 namespace DiplomAttempt2;
 public partial class UserContentPage : ContentPage
 {
+    //bool _editMode = false;
     public UserContentPage()
 	{
 		InitializeComponent();
         PackageView.ItemsSource = App.Packages;
     }
 
-    public async void CreatePackage(object sender, EventArgs e)
+    private async void CreatePackage(object sender, EventArgs e)
     {
+        //_editMode = false;
         string name = await DisplayPromptAsync("Новый пакет", "Введите название:");
-        if(!String.IsNullOrWhiteSpace(name)) 
+        if(!String.IsNullOrWhiteSpace(name))
         {
             Package package = new Package() { 
                 Name = name, 
@@ -27,12 +29,22 @@ public partial class UserContentPage : ContentPage
             App.Packages.Add(package);
             var writeData = JsonSerializer.Serialize(package);
             File.WriteAllText(FileSystem.AppDataDirectory + "/" + name + ".pckg", writeData);
-        }
-        
+        }        
+    }
+    private async void ChoosePackage(object sender, ItemTappedEventArgs e)
+    {
+        //if(!_editMode)
+            await Navigation.PushAsync(new PackagePage(App.Packages[e.ItemIndex]));
+        //else
+        //{
+
+        //}
+
     }
 
-    public async void OpenPackage(object sender, ItemTappedEventArgs e)
-    {
-        await Navigation.PushAsync(new PackagePage(App.Packages[e.ItemIndex]));
-    }
+    //private void EnableEditMode(object sender, EventArgs e)
+    //{
+    //    EditModeImage.Color = _editMode ? new Color(230, 230, 225) : new Color(80, 80, 10);
+    //    _editMode = !_editMode;
+    //}
 }

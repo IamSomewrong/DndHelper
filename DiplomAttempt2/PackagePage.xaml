@@ -2,36 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.PackagePage"
-             Title="PackagePage">
+             Title="PackagePage"
+             Style="{StaticResource pageStyle}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Добавить класс"/>
+        <ToolbarItem>
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                     Color="{StaticResource Secondary}"
+                     FontFamily="MaterialIconsOutlined-Regular"
+                     Glyph="&#xe872;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem>
+            <ToolbarItem.IconImageSource>
+            <FontImageSource
+                Color="{StaticResource Secondary}"
+                FontFamily="MaterialIconsOutlined-Regular"
+                Glyph="&#xe3c9;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem> 
     </ContentPage.ToolbarItems>
-    <VerticalStackLayout>
-        <ListView x:Name="ClassesList">
-            <ListView.ItemTemplate>
-                <DataTemplate></DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView x:Name="RacesList">
-            <ListView.ItemTemplate>
-                <DataTemplate></DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView x:Name="EnemiesList">
-            <ListView.ItemTemplate>
-                <DataTemplate></DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView x:Name="ItemsList">
-            <ListView.ItemTemplate>
-                <DataTemplate></DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView x:Name="SpellsList">
-            <ListView.ItemTemplate>
-                <DataTemplate></DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+    
+    <VerticalStackLayout HorizontalOptions="Fill" Spacing="10" Margin="10">
+        <Button Text="Расы" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Классы" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Предыстории" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Предметы" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Черты" Style="{StaticResource categoryButtonStyle}" Clicked="ToFeatsPage"/>
+        <Button Text="Заклинания" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Монстры" Style="{StaticResource categoryButtonStyle}"/>
     </VerticalStackLayout>
         
 </ContentPage>
