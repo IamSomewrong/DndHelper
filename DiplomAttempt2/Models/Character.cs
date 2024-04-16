@@ -11,8 +11,8 @@ namespace DiplomAttempt2.Models
         public int Level { get; set; } = 1;
         public int Experience { get; set; } = 0;
         public string Name { get; set; }
-        public string Race { get; set; }
-        public string Class { get; set; }
+        public Race Race { get; set; }
+        public Class Class { get; set; }
         public int MaxHits { get; set; } = 10;
         public int Hits { get; set; } = 10;
         public int TempHits { get; set; } = 0;

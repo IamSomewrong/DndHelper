@@ -4,7 +4,14 @@
              x:Class="DiplomAttempt2.PlayerPage"
              Title="Персонажи">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Создать" Clicked="CreateCharacter"/>
+        <ToolbarItem Clicked="CreateCharacter">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                Color="{StaticResource Secondary}"
+                FontFamily="MaterialIconsOutlined-Regular"
+                Glyph="&#xe145;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ListView x:Name="CharacterView">
         <ListView.ItemTemplate>
@@ -13,8 +20,8 @@
                     <ViewCell.View>
                         <HorizontalStackLayout>
                             <Label Text="{Binding Name}" />
-                            <Label Text="{Binding Race}" />
-                            <Label Text="{Binding Class}" />
+                            <Label Text="{Binding Race.Name}" />
+                            <Label Text="{Binding Level}"/>
                         </HorizontalStackLayout>
                     </ViewCell.View>
                 </ViewCell>

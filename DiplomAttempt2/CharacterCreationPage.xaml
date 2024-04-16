@@ -8,14 +8,7 @@
             <Label Text="Имя" />
             <Entry Placeholder="Тёмный соблазн" x:Name="NameEntry"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Раса" />
-            <Entry Placeholder="Драконорождённый" x:Name="RaceEntry"/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Класс" />
-            <Entry Placeholder="Чародей" x:Name="ClassEntry"/>
-        </HorizontalStackLayout>
+        <Picker Title="Раса" x:Name="RacePicker"/>
         <Button Text="Завершить" Clicked="EndCreation"/>
     </VerticalStackLayout>
 </ContentPage>

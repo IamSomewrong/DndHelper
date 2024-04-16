@@ -1,5 +1,7 @@
 namespace DiplomAttempt2;
 using DiplomAttempt2.Models;
+using System.Collections.ObjectModel;
+
 public partial class PackagePage : ContentPage
 {
 	Package _package;
@@ -13,5 +15,10 @@ public partial class PackagePage : ContentPage
     private async void ToFeatsPage(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new FeatsPage(_package.Feats));
+    }
+
+    private async void ToRacesPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new RacesPage(_package.Races));
     }
 }

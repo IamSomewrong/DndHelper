@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiplomAttempt2.RacePage"
+             Title="RacePage"
+             Style="{StaticResource pageStyle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                     Color="{StaticResource Secondary}"
+                     FontFamily="MaterialIconsOutlined-Regular"
+                     Glyph="&#xe872;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Clicked="SaveRace">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    Color="{StaticResource Secondary}"
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe876;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
+    <ScrollView x:Name="baseContent">
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Назввание:"/>
+                <Entry x:Name="Name"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Описание:"/>
+                <Entry x:Name="Description"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Скорость:"/>
+                <Entry x:Name="Speed"/>
+            </StackLayout>
+            <StackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Сила" />
+                    <Entry Placeholder="" x:Name="StrengthEntry" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Ловкость" />
+                    <Entry Placeholder="" x:Name="DexterityEntry" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Телосложение" />
+                    <Entry Placeholder="" x:Name="ConstitutionEntry" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Интеллект" />
+                    <Entry Placeholder="" x:Name="IntelligenceEntry" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Мудрость" />
+                    <Entry Placeholder="" x:Name="WisdomEntry" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Харизма" />
+                    <Entry Placeholder="" x:Name="CharismaEntry" />
+                </HorizontalStackLayout>
+            </StackLayout>
+            <ListView x:Name="SpellsList">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Заклинания"/>
+                        <Button Text="+" Clicked="OnAddSpellButtonClicked"/>
+                        <Button Text="-"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:Name="TraitsList">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Черты"/>
+                        <Button Text="+"  Clicked="OnAddTraitButtonClicked"/>
+                        <Button Text="-"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+                                    <Label Text="{Binding Title}"/>
+                                    <Label Text="{Binding Description}"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+    </ScrollView>
+        
+</ContentPage>

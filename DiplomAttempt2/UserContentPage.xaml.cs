@@ -19,12 +19,14 @@ public partial class UserContentPage : ContentPage
         if(!String.IsNullOrWhiteSpace(name))
         {
             Package package = new Package() { 
-                Name = name, 
+                Name = name,
                 Classes = new ObservableCollection<Class>(),
                 Races = new ObservableCollection<Race>(),
                 Items = new ObservableCollection<Item>(),
                 Enemies = new ObservableCollection<Enemy>(),
                 Spells = new ObservableCollection<Spell>(),
+                Feats = new ObservableCollection<Feat>(),
+                Origins = new ObservableCollection<Origin>(),
             };
             App.Packages.Add(package);
             var writeData = JsonSerializer.Serialize(package);

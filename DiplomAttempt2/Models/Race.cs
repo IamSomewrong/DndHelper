@@ -21,10 +21,10 @@ namespace DiplomAttempt2.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int Speed { get; set; }
-        public ObservableCollection<(Ability, int)> AbilityBonuses { get; set; }
-        public ObservableCollection<Subrace> Subrace { get; set; }
+        public ObservableCollection<int> AbilityBonuses { get; set; }
+        public ObservableCollection<Subrace> Subraces { get; set; }
         public ObservableCollection<Spell> Spells { get; set; }
-        public ObservableCollection<(string, string)> Traits { get; set; }
+        public ObservableCollection<Trait> Traits { get; set; }
         public ObservableCollection<Weapon> Weapons { get; set; }
         public ObservableCollection<Armor> Armors { get; set; }
         public ObservableCollection<Gear> Gears { get; set; }

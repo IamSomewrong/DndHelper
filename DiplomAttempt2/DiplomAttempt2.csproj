@@ -85,6 +85,12 @@
 	  <Compile Update="CharacterCreationPage.xaml.cs">
 	    <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="RacePage.xaml.cs">
+	    <DependentUpon>RacePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="RacesPage.xaml.cs">
+	    <DependentUpon>RacesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="UserContentPage.xaml.cs">
 	    <DependentUpon>UserContentPage.xaml</DependentUpon>
 	  </Compile>
@@ -92,6 +98,12 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="CharacterCreationPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="RacePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="RacesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="FeatsPage.xaml">

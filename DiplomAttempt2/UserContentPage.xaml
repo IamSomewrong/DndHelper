@@ -13,14 +13,6 @@
                     Glyph="&#xe145;" />
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
-        <!--<ToolbarItem Clicked="EnableEditMode">
-            <ToolbarItem.IconImageSource>
-                <FontImageSource x:Name="EditModeImage"
-                    Color="{StaticResource Secondary}"
-                    FontFamily="MaterialIconsOutlined-Regular"
-                    Glyph="&#xe3c9;" />
-            </ToolbarItem.IconImageSource>
-        </ToolbarItem>-->
     </ContentPage.ToolbarItems>
     <ScrollView HorizontalOptions="Fill" Margin="10">
         <ListView x:Name="PackageView" ItemTapped="ChoosePackage">
