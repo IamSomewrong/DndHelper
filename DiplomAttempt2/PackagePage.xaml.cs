@@ -21,4 +21,8 @@ public partial class PackagePage : ContentPage
     {
         await Navigation.PushAsync(new RacesPage(_package.Races));
     }
+    private async void ToClassesPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ClassesPage(_package.Classes));
+    }
 }

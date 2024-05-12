@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiplomAttempt2.ClassesPage"
+             Title="Классы"
+             Style="{StaticResource pageStyle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="CreateClicked">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                Color="{StaticResource Secondary}"
+                FontFamily="MaterialIconsOutlined-Regular"
+                Glyph="&#xe145;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView HorizontalOptions="Fill" Margin="10">
+        <ListView x:Name="FeatsView" ItemTapped="ToClass">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Name}" Style="{StaticResource listItemTextStyle}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

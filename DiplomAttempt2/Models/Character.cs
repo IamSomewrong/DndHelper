@@ -16,5 +16,12 @@ namespace DiplomAttempt2.Models
         public int MaxHits { get; set; } = 10;
         public int Hits { get; set; } = 10;
         public int TempHits { get; set; } = 0;
+        public Dictionary<Ability, int> AbilitiesProficiencies { get; set;}
+        public Dictionary<Ability, bool> Weapons { get; set; }
+        public Dictionary<Skill, int> SkillsProficiencies { get; set;}
+        public int Initiative { get; set; }
+        public int ArmorClass { get; set; }
+        public int Speed { get; set; }
+        public bool Inspiration { get; set; }
     }
 }
