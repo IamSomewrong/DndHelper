@@ -36,7 +36,7 @@ namespace DiplomAttempt2.Models
         public ObservableCollection<Skill> Skills { get; set; }
         public ObservableCollection<Gear> GearsForInventory { get; set; }
         public ObservableCollection<Gear> Gears {  get; set; }
-        public ObservableCollection<(string, string)> Traits { get; set; }
+        public ObservableCollection<string> Traits { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.LifecycleEvents;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Maui.LifecycleEvents;
 
 namespace DiplomAttempt2;
 
@@ -9,7 +10,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
+            .UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");

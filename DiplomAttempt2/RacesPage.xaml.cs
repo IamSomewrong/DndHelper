@@ -1,4 +1,4 @@
-using DiplomAttempt2.Models;
+п»їusing DiplomAttempt2.Models;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 
@@ -17,7 +17,7 @@ public partial class RacesPage : ContentPage
 
     private async void CreateClicked(object sender, EventArgs e)
     {
-        string name = await DisplayPromptAsync("Новая раса", "Введите название:");
+        string name = await DisplayPromptAsync("РЎРѕР·РґР°РЅРёРµ СЂР°СЃС‹", "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ:");
         if (!String.IsNullOrWhiteSpace(name))
         {
             Race race = new Race()

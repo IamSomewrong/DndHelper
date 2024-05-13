@@ -26,7 +26,7 @@
     <VerticalStackLayout HorizontalOptions="Fill" Spacing="10" Margin="10">
         <Button Text="Расы" Style="{StaticResource categoryButtonStyle}" Clicked="ToRacesPage"/>
         <Button Text="Классы" Style="{StaticResource categoryButtonStyle}" Clicked="ToClassesPage"/>
-        <Button Text="Предыстории" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Предыстории" Style="{StaticResource categoryButtonStyle}" Clicked="ToOriginsPage"/>
         <Button Text="Предметы" Style="{StaticResource categoryButtonStyle}"/>
         <Button Text="Черты" Style="{StaticResource categoryButtonStyle}" Clicked="ToFeatsPage"/>
         <Button Text="Заклинания" Style="{StaticResource categoryButtonStyle}"/>

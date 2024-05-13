@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+п»їusing System.Collections.ObjectModel;
 using System.Text.Json;
 using DiplomAttempt2.Models;
 
@@ -15,7 +15,7 @@ public partial class UserContentPage : ContentPage
     private async void CreatePackage(object sender, EventArgs e)
     {
         //_editMode = false;
-        string name = await DisplayPromptAsync("Новый пакет", "Введите название:");
+        string name = await DisplayPromptAsync("РЎРѕР·РґР°РЅРёРµ РїР°РєРµС‚Р°", "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ:");
         if(!String.IsNullOrWhiteSpace(name))
         {
             Package package = new Package() { 

@@ -82,11 +82,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
+	  <PackageReference Include="CommunityToolkit.Maui.Markup" Version="3.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="CharacterCreationPage.xaml.cs">
 	    <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="OriginPage.xaml.cs">
+	    <DependentUpon>OriginPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ClassPage.xaml.cs">
 	    <DependentUpon>ClassPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="OriginsPage.xaml.cs">
+	    <DependentUpon>OriginsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="RacePage.xaml.cs">
 	    <DependentUpon>RacePage.xaml</DependentUpon>
@@ -106,7 +117,13 @@
 	  <MauiXaml Update="CharacterCreationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="OriginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ClassPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="OriginsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RacePage.xaml">

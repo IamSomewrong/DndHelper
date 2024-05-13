@@ -1,4 +1,4 @@
-namespace DiplomAttempt2;
+ï»¿namespace DiplomAttempt2;
 using DiplomAttempt2.Models;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -29,18 +29,18 @@ public partial class RacePage : ContentPage
         {
             availableSpells = availableSpells.Concat(item.Spells).ToList();
         }
-        // Ñîçäàíèå è íàñòðîéêà Picker äëÿ âûáîðà çàêëèíàíèÿ
+        // Ã‘Ã®Ã§Ã¤Ã Ã­Ã¨Ã¥ Ã¨ Ã­Ã Ã±Ã²Ã°Ã®Ã©ÃªÃ  Picker Ã¤Ã«Ã¿ Ã¢Ã»Ã¡Ã®Ã°Ã  Ã§Ã ÃªÃ«Ã¨Ã­Ã Ã­Ã¨Ã¿
         Picker spellPicker = new Picker
         {
             Title = "Select Spell",
             ItemsSource = availableSpells
         };
-        Button backButton = new Button() { Text = "Íàçàä" };
+        Button backButton = new Button() { Text = "ÃÃ Ã§Ã Ã¤" };
         backButton.Clicked += (s, e) =>
         {
             Content = baseContent;
         };
-        // Îáðàáîò÷èê âûáîðà çàêëèíàíèÿ
+        // ÃŽÃ¡Ã°Ã Ã¡Ã®Ã²Ã·Ã¨Ãª Ã¢Ã»Ã¡Ã®Ã°Ã  Ã§Ã ÃªÃ«Ã¨Ã­Ã Ã­Ã¨Ã¿
         spellPicker.SelectedIndexChanged += (picker, args) =>
         {
             if (spellPicker.SelectedIndex != -1)
@@ -58,10 +58,10 @@ public partial class RacePage : ContentPage
     }
     private void OnAddTraitButtonClicked(object sender, EventArgs e)
     {
-        Entry titleEntry = new Entry() { Placeholder = "Çàãîëîâîê" };
-        Entry traitEntry = new Entry() { Placeholder = "Òåêñò" };
-        Button addButton = new Button() { Text = "Äîáàâèòü" };
-        Button backButton = new Button() { Text = "Íàçàä" };
+        Entry titleEntry = new Entry() { Placeholder = "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ" };
+        Entry traitEntry = new Entry() { Placeholder = "Ð¢ÐµÐºÑÑ‚" };
+        Button addButton = new Button() { Text = "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ" };
+        Button backButton = new Button() { Text = "ÐÐ°Ð·Ð°Ð´" };
         addButton.Clicked += (s, e) =>
         {
             _race.Traits.Add(new Trait() { Title = titleEntry.Text, Description = traitEntry.Text });

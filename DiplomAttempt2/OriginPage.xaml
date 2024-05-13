@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiplomAttempt2.OriginPage"
+             Title="OriginPage"
+             Style="{StaticResource pageStyle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem>
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                     Color="{StaticResource Secondary}"
+                     FontFamily="MaterialIconsOutlined-Regular"
+                     Glyph="&#xe872;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Clicked="SaveOrigin">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    Color="{StaticResource Secondary}"
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe876;" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        
+    </ContentPage.ToolbarItems>
+    <ScrollView x:Name="baseContent">
+        <StackLayout>
+            <StackLayout>
+                <Label Text="Назввание:"/>
+                <Entry x:Name="Name"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Описание:"/>
+                <Entry x:Name="Description"/>
+            </StackLayout>
+
+            <ListView x:Name="SkillsList">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Мастерство в способностях:"/>
+                        <Button Text="+"  Clicked="OnAddSkillButtonClicked"/>
+                        <Button Text="-"/>
+                    </StackLayout>
+                </ListView.Header>
+            </ListView>
+
+            <ListView x:Name="TraitsList">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Черты:"/>
+                        <Button Text="+"  Clicked="OnAddTraitButtonClicked"/>
+                        <Button Text="-"/>
+                    </StackLayout>
+                </ListView.Header>
+            </ListView>
+
+        </StackLayout>
+       
+    </ScrollView>
+        
+</ContentPage>

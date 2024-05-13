@@ -13,15 +13,17 @@ namespace DiplomAttempt2.Models
         public string Name { get; set; }
         public Race Race { get; set; }
         public Class Class { get; set; }
-        public int MaxHits { get; set; } = 10;
-        public int Hits { get; set; } = 10;
+        public Origin Origin { get; set; }
+        public int MaxHits { get; set; }
+        public int Hits { get; set; }
         public int TempHits { get; set; } = 0;
-        public Dictionary<Ability, int> AbilitiesProficiencies { get; set;}
+        public Dictionary<Ability, int> Abilities { get; set;}
+        public Dictionary<Ability, bool> AbilityProficiencies { get; set; }
         public Dictionary<Ability, bool> Weapons { get; set; }
         public Dictionary<Skill, int> SkillsProficiencies { get; set;}
-        public int Initiative { get; set; }
-        public int ArmorClass { get; set; }
+        public int Initiative { get;} 
+        public int ArmorClass { get;}
         public int Speed { get; set; }
-        public bool Inspiration { get; set; }
+        public bool Inspiration { get; set; } = false;
     }
 }

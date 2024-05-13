@@ -25,4 +25,9 @@ public partial class PackagePage : ContentPage
     {
         await Navigation.PushAsync(new ClassesPage(_package.Classes));
     }
+
+    private async void ToOriginsPage(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new OriginsPage(_package.Origins));
+    }
 }

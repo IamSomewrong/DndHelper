@@ -2,13 +2,68 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.CharacterCreationPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:DiplomAttempt2.ViewModels"
              Title="Создание персонажа">
+    <ContentPage.BindingContext>
+        <local:CharacterCreationViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
     <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
         <HorizontalStackLayout>
             <Label Text="Имя" />
             <Entry Placeholder="Тёмный соблазн" x:Name="NameEntry"/>
         </HorizontalStackLayout>
         <Picker Title="Раса" x:Name="RacePicker"/>
+        <Picker Title="Класс" x:Name="ClassPicker" SelectedIndexChanged="OpenClass"/>
+        <StackLayout x:Name="ClassLayout">
+        
+        </StackLayout>
+        <Picker Title="Происхождение" x:Name="OriginPicker"/>
+        <Label Text="Распределение характеристик:"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Осталось: "/>
+            <Label Text="{Binding Points}" x:Name="RemainedPoints"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout>
+                <Label Text="Сила"/>
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="str"/>
+                    <Label Text="{Binding Strength}"/>
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="str"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Ловкость" x:Name="Dexterity"/>
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="dex"/>
+                <Label Text="{Binding Dexterity}"/>
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="dex"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Телосложение" x:Name="Constitution"/>
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="con"/>
+                <Label Text="{Binding Constitution}"/>
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="con"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Мудрость" x:Name="Wisdom"/>
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="wis"/>
+                <Label Text="{Binding Wisdom}"/>
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="wis"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Интеллект" x:Name="Intelligence"/>
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="int"/>
+                <Label Text="{Binding Intelligence}"/>
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="int"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Харизма" x:Name="Charisma"/>
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="cha"/>
+                <Label Text="{Binding Charisma}"/>
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="cha"/>
+            </StackLayout>
+        </StackLayout>
         <Button Text="Завершить" Clicked="EndCreation"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
