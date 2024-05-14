@@ -50,6 +50,7 @@ namespace DiplomAttempt2.ViewModels
                     {
                         Character.Hits++;
                         OnPropertyChanged();
+                        App.SaveCharacters();
                         ((Command)IncrementHitsCommand).ChangeCanExecute();
                         ((Command)DecrementHitsCommand).ChangeCanExecute();
                     },
@@ -64,6 +65,7 @@ namespace DiplomAttempt2.ViewModels
                     {
                         Character.Hits--;
                         OnPropertyChanged();
+                        App.SaveCharacters();
                         ((Command)IncrementHitsCommand).ChangeCanExecute();
                         ((Command)DecrementHitsCommand).ChangeCanExecute();
                     },

@@ -14,6 +14,8 @@ public partial class СharacterPage : ContentPage
         InitializeComponent();
 	}
 
+    
+
     private void DexterityAttackTapped(object sender, TappedEventArgs e)
     {
         int result = Random.Shared.Next(1, 21);
