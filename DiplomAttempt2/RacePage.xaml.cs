@@ -94,6 +94,6 @@ public partial class RacePage : ContentPage
         _race.AbilityBonuses[3] = Int32.Parse(WisdomEntry.Text);
         _race.AbilityBonuses[4] = Int32.Parse(IntelligenceEntry.Text);
         _race.AbilityBonuses[5] = Int32.Parse(CharismaEntry.Text);
-        App.SavePackages();
+        ContentManager.SavePackages();
     }
 }

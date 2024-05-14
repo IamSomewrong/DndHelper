@@ -32,7 +32,7 @@ public partial class RacesPage : ContentPage
                 Gears = new ObservableCollection<Gear>(),
             };
             _races.Add(race);
-            App.SavePackages();
+            ContentManager.SavePackages();
         }
     }
 

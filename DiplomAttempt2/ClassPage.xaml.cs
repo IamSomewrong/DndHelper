@@ -117,6 +117,6 @@ public partial class ClassPage : ContentPage
             _class.HitDice = Dice.K12;
         else if (Radio20.IsChecked)
             _class.HitDice = Dice.K20;
-        App.SavePackages();
+        ContentManager.SavePackages();
     }
 }

@@ -28,7 +28,7 @@ public partial class OriginsPage : ContentPage
                Traits = new ObservableCollection<string>()
            };
             _origins.Add(origin);
-            App.SavePackages();
+            ContentManager.SavePackages();
         }
     }
     private async void ToOrigin(object sender, ItemTappedEventArgs e)

@@ -21,12 +21,9 @@ public partial class CharacterCreationPage : ContentPage
 		_viewmodel = (CharacterCreationViewModel)BindingContext;
 
         _characters = (ObservableCollection<Character>)characters;
-		foreach(Package package in App.Packages)
-		{
-			_classes = _classes.Concat(package.Classes).ToList();
-			_races = _races.Concat(package.Races).ToList();
-			_origins = _origins.Concat(package.Origins).ToList();
-		}
+		_classes = ContentManager.GetAllClasses();
+		_races = ContentManager.GetAllRaces();
+		_origins = ContentManager.GetAllOrigins();
 		List<string> raceNames = (from r in _races select r.Name).ToList<string>();
 		List<string> classNames = (from c in _classes select c.Name).ToList<string>();
 		List<string> originNames = (from o in _origins select o.Name).ToList<string>();
@@ -136,7 +133,7 @@ public partial class CharacterCreationPage : ContentPage
 			Hits = hits,
 
 		});
-		App.SaveCharacters();
+		ContentManager.SaveCharacters();
         await Navigation.PopAsync();
 	}
 }

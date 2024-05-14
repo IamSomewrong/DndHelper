@@ -22,7 +22,7 @@ public partial class FeatsPage : ContentPage
         {
             Feat feat = new Feat() { Name = name };
             _feats.Add(feat);
-            App.SavePackages();
+            ContentManager.SavePackages();
         }
     }
 }

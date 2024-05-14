@@ -45,7 +45,7 @@ public partial class OriginPage : ContentPage
     {
         _origin.Name = Name.Text;
         _origin.Description = Description.Text;
-        App.SavePackages();
+        ContentManager.SavePackages();
     }
 
     private void OnAddTraitButtonClicked(object sender, EventArgs e)

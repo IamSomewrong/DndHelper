@@ -32,7 +32,7 @@ public partial class ClassesPage : ContentPage
                 Subclasses = new ObservableCollection<Subclass>()
             };
             _classes.Add(myClass);
-            App.SavePackages();
+            ContentManager.SavePackages();
         }
     }
 
