@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.PackagePage"
              Title="PackagePage"
-             Style="{StaticResource pageStyle}">
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.IconImageSource>
@@ -24,13 +24,13 @@
     </ContentPage.ToolbarItems>
     
     <VerticalStackLayout HorizontalOptions="Fill" Spacing="10" Margin="10">
-        <Button Text="Расы" Style="{StaticResource categoryButtonStyle}" Clicked="ToRacesPage"/>
-        <Button Text="Классы" Style="{StaticResource categoryButtonStyle}" Clicked="ToClassesPage"/>
-        <Button Text="Предыстории" Style="{StaticResource categoryButtonStyle}" Clicked="ToOriginsPage"/>
-        <Button Text="Предметы" Style="{StaticResource categoryButtonStyle}"/>
-        <Button Text="Черты" Style="{StaticResource categoryButtonStyle}" Clicked="ToFeatsPage"/>
-        <Button Text="Заклинания" Style="{StaticResource categoryButtonStyle}"/>
-        <Button Text="Монстры" Style="{StaticResource categoryButtonStyle}"/>
+        <Button Text="Расы"  Clicked="ToRacesPage"/>
+        <Button Text="Классы"  Clicked="ToClassesPage"/>
+        <Button Text="Предыстории"  Clicked="ToOriginsPage"/>
+        <Button Text="Предметы" />
+        <Button Text="Черты"  Clicked="ToFeatsPage"/>
+        <Button Text="Заклинания" />
+        <Button Text="Монстры" />
     </VerticalStackLayout>
         
 </ContentPage>

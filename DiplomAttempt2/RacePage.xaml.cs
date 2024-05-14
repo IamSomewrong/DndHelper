@@ -11,6 +11,7 @@ public partial class RacePage : ContentPage
 		InitializeComponent();
 		_race = race;
 		Title = race.Name;
+        Speed.Text = race.Speed.ToString();
 		Name.Text = race.Name;
 		Description.Text = race.Description;
 		StrengthEntry.Text = race.AbilityBonuses[0].ToString();
@@ -51,7 +52,9 @@ public partial class RacePage : ContentPage
         };
         Content = new StackLayout()
         {
-            Children = {spellPicker,
+            Children = 
+            {
+                spellPicker,
                 backButton
             }
         };
@@ -84,6 +87,7 @@ public partial class RacePage : ContentPage
     {
 		_race.Name =  Name.Text;
 		_race.Description = Description.Text;
+        _race.Speed = Int32.Parse(Speed.Text);
         _race.AbilityBonuses[0]= Int32.Parse(StrengthEntry.Text);
         _race.AbilityBonuses[1] = Int32.Parse(DexterityEntry.Text);
         _race.AbilityBonuses[2] = Int32.Parse(ConstitutionEntry.Text);

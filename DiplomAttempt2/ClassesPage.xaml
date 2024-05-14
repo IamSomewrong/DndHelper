@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.ClassesPage"
-             Title="Классы"
-             Style="{StaticResource pageStyle}">
+             Title="Классы">
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="CreateClicked">
             <ToolbarItem.IconImageSource>
@@ -19,7 +18,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Name}" Style="{StaticResource listItemTextStyle}"/>
+                        <Label Text="{Binding Name}" />
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

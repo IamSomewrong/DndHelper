@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.RacesPage"
              Title="Расы"
-             Style="{StaticResource pageStyle}">
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="CreateClicked">
             <ToolbarItem.IconImageSource>
@@ -19,7 +19,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Name}" Style="{StaticResource listItemTextStyle}"/>
+                        <Label Text="{Binding Name}" />
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

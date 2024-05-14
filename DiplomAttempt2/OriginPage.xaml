@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.OriginPage"
              Title="OriginPage"
-             Style="{StaticResource pageStyle}">
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.IconImageSource>
@@ -26,20 +26,20 @@
     <ScrollView x:Name="baseContent">
         <StackLayout>
             <StackLayout>
-                <Label Text="Назввание:"/>
-                <Entry x:Name="Name"/>
+                <Label Text="Назввание:" />
+                <Entry x:Name="Name" />
             </StackLayout>
             <StackLayout>
-                <Label Text="Описание:"/>
-                <Entry x:Name="Description"/>
+                <Label Text="Описание:" />
+                <Entry x:Name="Description" />
             </StackLayout>
 
             <ListView x:Name="SkillsList">
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Мастерство в способностях:"/>
-                        <Button Text="+"  Clicked="OnAddSkillButtonClicked"/>
-                        <Button Text="-"/>
+                        <Label Text="Мастерство в способностях:" />
+                        <Button Text="+"  Clicked="OnAddSkillButtonClicked" />
+                        <Button Text="-" />
                     </StackLayout>
                 </ListView.Header>
             </ListView>
@@ -47,9 +47,9 @@
             <ListView x:Name="TraitsList">
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Черты:"/>
-                        <Button Text="+"  Clicked="OnAddTraitButtonClicked"/>
-                        <Button Text="-"/>
+                        <Label Text="Черты:" />
+                        <Button Text="+"  Clicked="OnAddTraitButtonClicked" />
+                        <Button Text="-" />
                     </StackLayout>
                 </ListView.Header>
             </ListView>

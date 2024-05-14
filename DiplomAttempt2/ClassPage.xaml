@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.ClassPage"
-             Title="RacePage"
-             Style="{StaticResource pageStyle}">
+             Title="RacePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.IconImageSource>
@@ -26,63 +25,63 @@
     <ScrollView x:Name="baseContent">
         <StackLayout>
             <StackLayout>
-                <Label Text="Назввание:"/>
-                <Entry x:Name="Name"/>
+                <Label Text="Назввание:" />
+                <Entry x:Name="Name" />
             </StackLayout>
             <StackLayout>
-                <Label Text="Описание:"/>
-                <Entry x:Name="Description"/>
+                <Label Text="Описание:" />
+                <Entry x:Name="Description" />
             </StackLayout>
             
             <StackLayout>
-                <Label Text="Спас-броски"/>
+                <Label Text="Спас-броски" />
                 <StackLayout Orientation="Horizontal">
                     <CheckBox x:Name="CheckStrength"/>
-                    <Label Text ="Сила"/>
+                    <Label Text ="Сила" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <CheckBox x:Name="CheckDexterity"/>
-                    <Label Text="Ловкость"/>
+                    <Label Text="Ловкость" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <CheckBox x:Name="CheckConstitution"/>
-                    <Label Text="Телосложение"/>
+                    <Label Text="Телосложение" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <CheckBox x:Name="CheckWisdom"/>
-                    <Label Text="Мудрость"/>
+                    <Label Text="Мудрость" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <CheckBox x:Name="CheckIntelligence"/>
-                    <Label Text="Интеллект"/>
+                    <Label Text="Интеллект" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <CheckBox x:Name="CheckCharisma"/>
-                    <Label Text="Харизма"/>
+                    <Label Text="Харизма" />
                 </StackLayout>
             </StackLayout>
 
             <StackLayout>
-                <Label Text="Кость хитов" />
-                <RadioButton Content="К4" x:Name="Radio4"/>
-                <RadioButton Content="К6" x:Name="Radio6"/>
-                <RadioButton Content="К8" x:Name="Radio8"/>
-                <RadioButton Content="К10" x:Name="Radio10"/>
-                <RadioButton Content="К12" x:Name="Radio12"/>
-                <RadioButton Content="К20" x:Name="Radio20"/>
+                <Label Text="Кость хитов"  />
+                <RadioButton Content="К4" x:Name="Radio4" />
+                <RadioButton Content="К6" x:Name="Radio6" />
+                <RadioButton Content="К8" x:Name="Radio8" />
+                <RadioButton Content="К10" x:Name="Radio10" />
+                <RadioButton Content="К12" x:Name="Radio12" />
+                <RadioButton Content="К20" x:Name="Radio20" />
             </StackLayout>
 
             <StackLayout>
-                <Label Text="Количество способностей:"/>
-                <Entry x:Name="SkillsCount"/>
+                <Label Text="Количество способностей:" />
+                <Entry x:Name="SkillsCount" />
             </StackLayout>
 
             <ListView x:Name="SkillsList">
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="На выбор из:"/>
-                        <Button Text="+"  Clicked="OnAddSkillButtonClicked"/>
-                        <Button Text="-"/>
+                        <Label Text="На выбор из:" />
+                        <Button Text="+"  Clicked="OnAddSkillButtonClicked" />
+                        <Button Text="-" />
                     </StackLayout>
                 </ListView.Header>
             </ListView>

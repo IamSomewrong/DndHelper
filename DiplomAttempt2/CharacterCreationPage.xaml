@@ -9,60 +9,69 @@
         <local:CharacterCreationViewModel/>
     </ContentPage.BindingContext>
     <ScrollView>
-    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <HorizontalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <StackLayout>
             <Label Text="Имя" />
             <Entry Placeholder="Тёмный соблазн" x:Name="NameEntry"/>
-        </HorizontalStackLayout>
+        </StackLayout>
         <Picker Title="Раса" x:Name="RacePicker"/>
         <Picker Title="Класс" x:Name="ClassPicker" SelectedIndexChanged="OpenClass"/>
         <StackLayout x:Name="ClassLayout">
         
         </StackLayout>
-        <Picker Title="Происхождение" x:Name="OriginPicker"/>
-        <Label Text="Распределение характеристик:"/>
+        <Picker Title="Происхождение" x:Name="OriginPicker" />
+        <Label Text="Распределение характеристик:" />
         <StackLayout Orientation="Horizontal">
             <Label Text="Осталось: "/>
             <Label Text="{Binding Points}" x:Name="RemainedPoints"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <StackLayout>
-                <Label Text="Сила"/>
+        <Grid  HorizontalOptions="Fill">
+             <Grid.ColumnDefinitions>
+                 <ColumnDefinition/>
+                 <ColumnDefinition/>
+                 <ColumnDefinition/>
+             </Grid.ColumnDefinitions>
+             <Grid.RowDefinitions>
+                 <RowDefinition/>
+                 <RowDefinition/>
+             </Grid.RowDefinitions>
+            <StackLayout Grid.Column="0" Grid.Row="0">
+                <Label Text="Сила" />
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="str"/>
-                    <Label Text="{Binding Strength}"/>
+                <Label Text="{Binding Strength}" />
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="str"/>
+             </StackLayout>
+            <StackLayout Grid.Column="1" Grid.Row="0">
+                <Label Text="Ловкость" x:Name="Dexterity" />
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="dex" />
+                <Label Text="{Binding Dexterity}" />
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="dex" />
             </StackLayout>
-            <StackLayout>
-                <Label Text="Ловкость" x:Name="Dexterity"/>
-                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="dex"/>
-                <Label Text="{Binding Dexterity}"/>
-                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="dex"/>
-            </StackLayout>
-            <StackLayout>
-                <Label Text="Телосложение" x:Name="Constitution"/>
-                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="con"/>
+            <StackLayout Grid.Column="2" Grid.Row="0">
+                <Label Text="Телосложение" x:Name="Constitution" />
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="con" />
                 <Label Text="{Binding Constitution}"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="con"/>
             </StackLayout>
-            <StackLayout>
-                <Label Text="Мудрость" x:Name="Wisdom"/>
+            <StackLayout Grid.Column="0" Grid.Row="1">
+                <Label Text="Мудрость" x:Name="Wisdom" />
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="wis"/>
                 <Label Text="{Binding Wisdom}"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="wis"/>
             </StackLayout>
-            <StackLayout>
-                <Label Text="Интеллект" x:Name="Intelligence"/>
-                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="int"/>
-                <Label Text="{Binding Intelligence}"/>
-                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="int"/>
+            <StackLayout Grid.Column="1" Grid.Row="1">
+                <Label Text="Интеллект" x:Name="Intelligence" />
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="int" />
+                <Label Text="{Binding Intelligence}" />
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="int" />
             </StackLayout>
-            <StackLayout>
-                <Label Text="Харизма" x:Name="Charisma"/>
-                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="cha"/>
-                <Label Text="{Binding Charisma}"/>
-                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="cha"/>
+            <StackLayout Grid.Column="2" Grid.Row="1">
+                <Label Text="Харизма" x:Name="Charisma" />
+                <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="cha" />
+                <Label Text="{Binding Charisma}" />
+                <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="cha" />
             </StackLayout>
-        </StackLayout>
+        </Grid>
         <Button Text="Завершить" Clicked="EndCreation"/>
     </VerticalStackLayout>
     </ScrollView>

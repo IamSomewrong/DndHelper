@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.RacePage"
              Title="RacePage"
-             Style="{StaticResource pageStyle}">
+             >
     <ContentPage.ToolbarItems>
         <ToolbarItem>
             <ToolbarItem.IconImageSource>
@@ -26,28 +26,28 @@
     <ScrollView x:Name="baseContent">
         <StackLayout>
             <StackLayout>
-                <Label Text="Назввание:"/>
-                <Entry x:Name="Name"/>
+                <Label Text="Название:" />
+                <Entry x:Name="Name"  Placeholder="Человек"/>
             </StackLayout>
             <StackLayout>
-                <Label Text="Описание:"/>
-                <Entry x:Name="Description"/>
+                <Label Text="Описание:" />
+                <Editor x:Name="Description"  Placeholder="Какая-то раса."/>
             </StackLayout>
             <StackLayout>
-                <Label Text="Скорость:"/>
-                <Entry x:Name="Speed"/>
+                <Label Text="Скорость:" />
+                <Entry x:Name="Speed" />
             </StackLayout>
             <StackLayout>
-                <HorizontalStackLayout>
-                    <Label Text="Сила" />
-                    <Entry Placeholder="" x:Name="StrengthEntry" />
+                <HorizontalStackLayout HorizontalOptions="Fill">
+                    <Label Text="Сила"  />
+                    <Entry Placeholder="" x:Name="StrengthEntry"  />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <Label Text="Ловкость" />
-                    <Entry Placeholder="" x:Name="DexterityEntry" />
+                    <Label Text="Ловкость"  />
+                    <Entry Placeholder="" x:Name="DexterityEntry"  />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <Label Text="Телосложение" />
+                    <Label Text="Телосложение"  />
                     <Entry Placeholder="" x:Name="ConstitutionEntry" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
@@ -56,33 +56,33 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="Мудрость" />
-                    <Entry Placeholder="" x:Name="WisdomEntry" />
+                    <Entry Placeholder="" x:Name="WisdomEntry"  />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="Харизма" />
-                    <Entry Placeholder="" x:Name="CharismaEntry" />
+                    <Entry Placeholder="" x:Name="CharismaEntry"  />
                 </HorizontalStackLayout>
             </StackLayout>
             <ListView x:Name="SpellsList">
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Заклинания"/>
-                        <Button Text="+" Clicked="OnAddSpellButtonClicked"/>
-                        <Button Text="-"/>
+                        <Label Text="Заклинания" />
+                        <Button Text="+" Clicked="OnAddSpellButtonClicked" />
+                        <Button Text="-" />
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding Name}"/>
+                        <Label Text="{Binding Name}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <ListView x:Name="TraitsList">
                 <ListView.Header>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Черты"/>
-                        <Button Text="+"  Clicked="OnAddTraitButtonClicked"/>
-                        <Button Text="-"/>
+                        <Label Text="Черты" />
+                        <Button Text="+"  Clicked="OnAddTraitButtonClicked" />
+                        <Button Text="-" />
                     </StackLayout>
                 </ListView.Header>
                 <ListView.ItemTemplate>
