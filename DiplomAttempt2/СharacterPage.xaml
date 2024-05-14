@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiplomAttempt2.СharacterPage"
+             Title="СharacterPage">
+    <VerticalStackLayout>
+        <FlexLayout Direction="Row" JustifyContent="SpaceEvenly" Margin="10">
+            <ImageButton>
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MaterialIconsOutlined-Regular"
+                        Glyph="&#xe5d2;"
+                        Size="50"/>
+                </ImageButton.Source>
+            </ImageButton>
+            <ImageButton>
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MaterialIconsOutlined-Regular"
+                        Glyph="&#xe8b8;"
+                        Size="50"/>
+                </ImageButton.Source>
+            </ImageButton>
+            <ImageButton>
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MaterialIconsOutlined-Regular"
+                        Glyph="&#xe87d;"
+                        Size="50"/>
+                </ImageButton.Source>
+            </ImageButton>
+            <ImageButton>
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="MaterialIconsOutlined-Regular"
+                        Glyph="&#xe1a1;"
+                        Size="50"/>
+                </ImageButton.Source>
+            </ImageButton>
+        </FlexLayout>
+        <ScrollView>
+            <Grid ColumnSpacing="5" RowSpacing="5" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Column="0" Grid.Row="0"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <Label Text="КД" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding ArmorClass}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" Grid.Row="0"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <Label Text="Инициатива" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Initiative}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" Grid.Row="0"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <Label Text="Скорость" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Character.Speed}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <FlexLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3"
+                            Direction="Row" JustifyContent="SpaceEvenly"
+                            BackgroundColor="{StaticResource Primary}"
+                            Padding="5">
+                    <ImageButton Command="{Binding DecrementHitsCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                FontFamily="MaterialIconsOutlined-Regular"
+                                Glyph="&#xe15b;"
+                                Size="30"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                    <StackLayout>
+                        <Label Text="Хиты"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Character.Hits}"/>
+                            <Label Text="/"/>
+                            <Label Text="{Binding Character.MaxHits}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <ImageButton Command="{Binding IncrementHitsCommand}">
+                        <ImageButton.Source>
+                            <FontImageSource
+                                FontFamily="MaterialIconsOutlined-Regular"
+                                Glyph="&#xe145;"
+                                Size="30"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                </FlexLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="2"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <Label Text="Cпас-бросок заклинания" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding SpellSaveThrow}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="2"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <Label Text="Пассивная внимательность" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding PassivePerception}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="2"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <Label Text="Бонус мастерства" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding MasteryBonus}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="3"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SpellAttackTapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Атака заклинанием" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding SpellAttack}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="3"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="StrengthAttackTapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Атака силой" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding MeleeAttack}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="3"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DexterityAttackTapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Атака ловкостью" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding RangeAttack}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="4"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}"
+                             x:Name="StrengthLayout">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbilityCheck"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Сила" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Strength}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding StrBonus}" HorizontalOptions="Center" VerticalOptions="Center"
+                           BackgroundColor="{StaticResource Tertiary}" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="4"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}"
+                             x:Name="DexterityLayout">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbilityCheck"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Ловкость" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Dexterity}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding DexBonus}" HorizontalOptions="Center" VerticalOptions="Center"
+                            BackgroundColor="{StaticResource Tertiary}" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="4"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}"
+                             x:Name="ConstitutionLayout">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbilityCheck"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Телосл" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Constitution}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding ConBonus}" HorizontalOptions="Center" VerticalOptions="Center"
+                            BackgroundColor="{StaticResource Tertiary}" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Column="0" Grid.Row="5"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}"
+                             x:Name="WisdomLayout">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbilityCheck"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Мудр" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Wisdom}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding WisBonus}" HorizontalOptions="Center" VerticalOptions="Center"
+                            BackgroundColor="{StaticResource Tertiary}" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" Grid.Row="5"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}"
+                             x:Name="IntelligenceLayout">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbilityCheck"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Интел" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Intelligence}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding IntBonus}" HorizontalOptions="Center" VerticalOptions="Center"
+                            BackgroundColor="{StaticResource Tertiary}" Padding="5"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" Grid.Row="5"
+                             HorizontalOptions="Fill" 
+                             VerticalOptions="Fill" 
+                             BackgroundColor="{StaticResource Primary}"
+                             x:Name="CharismaLayout">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbilityCheck"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Харизм" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding Charisma}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Label Text="{Binding ChaBonus}" HorizontalOptions="Center" VerticalOptions="Center"
+                            BackgroundColor="{StaticResource Tertiary}" Padding="5"/>
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

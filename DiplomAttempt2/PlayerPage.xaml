@@ -14,7 +14,7 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-    <ListView x:Name="CharacterView">
+    <ListView x:Name="CharacterView" ItemTapped="CharacterView_ItemTapped"  >
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
