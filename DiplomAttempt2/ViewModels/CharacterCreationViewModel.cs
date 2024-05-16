@@ -51,7 +51,7 @@ namespace DiplomAttempt2.ViewModels
                 case "str":
                     if (Strength < 15)
                     {
-                        Strength++; Points--;
+                        Strength++; Points -= Strength < 14?1:2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Strength"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -59,7 +59,7 @@ namespace DiplomAttempt2.ViewModels
                 case "dex":
                     if (Dexterity < 15)
                     {
-                        Dexterity++; Points--;
+                        Dexterity++; Points -= Dexterity < 14 ? 1 : 2; ;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Dexterity"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -67,7 +67,7 @@ namespace DiplomAttempt2.ViewModels
                 case "con":
                     if (Constitution < 15)
                     {
-                        Constitution++; Points--;
+                        Constitution++; Points -= Constitution < 14 ? 1 : 2; ;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Constitution"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -75,7 +75,7 @@ namespace DiplomAttempt2.ViewModels
                 case "wis":
                     if (Wisdom < 15)
                     {
-                        Wisdom++; Points--;
+                        Wisdom++; Points -= Wisdom < 14 ? 1 : 2; ;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Wisdom"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -83,7 +83,7 @@ namespace DiplomAttempt2.ViewModels
                 case "int":
                     if (Intelligence < 15)
                     {
-                        Intelligence++; Points--;
+                        Intelligence++; Points -= Intelligence < 14 ? 1 : 2; ;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Intelligence"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -91,7 +91,7 @@ namespace DiplomAttempt2.ViewModels
                 case "cha":
                     if (Charisma < 15)
                     {
-                        Charisma++; Points--;
+                        Charisma++; Points -= Charisma < 14 ? 1 : 2; ;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Charisma"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -111,7 +111,7 @@ namespace DiplomAttempt2.ViewModels
                 case "str":
                     if (Strength > 8)
                     {
-                        Strength--; Points++;
+                        Strength--; Points += Strength < 13 ? 1 : 2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Strength"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -119,7 +119,7 @@ namespace DiplomAttempt2.ViewModels
                 case "dex":
                     if (Dexterity > 8)
                     {
-                        Dexterity--; Points++;
+                        Dexterity--; Points += Dexterity < 13 ? 1 : 2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Dexterity"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -127,7 +127,7 @@ namespace DiplomAttempt2.ViewModels
                 case "con":
                     if (Constitution > 8)
                     {
-                        Constitution--; Points++;
+                        Constitution--; Points += Constitution < 13 ? 1 : 2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Constitution"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -135,7 +135,7 @@ namespace DiplomAttempt2.ViewModels
                 case "wis":
                     if (Wisdom > 8)
                     {
-                        Wisdom--; Points++;
+                        Wisdom--; Points += Wisdom < 13 ? 1 : 2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Wisdom"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -143,7 +143,7 @@ namespace DiplomAttempt2.ViewModels
                 case "int":
                     if (Intelligence > 8)
                     {
-                        Intelligence--; Points++;
+                        Intelligence--; Points += Intelligence < 13 ? 1 : 2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Intelligence"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };
@@ -151,7 +151,7 @@ namespace DiplomAttempt2.ViewModels
                 case "cha":
                     if (Charisma > 8)
                     {
-                        Charisma--; Points++;
+                        Charisma--; Points += Charisma < 13 ? 1 : 2;
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Charisma"));
                         PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
                     };

@@ -4,15 +4,16 @@
              x:Class="DiplomAttempt2.CharacterCreationPage"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:local="clr-namespace:DiplomAttempt2.ViewModels"
-             Title="Создание персонажа">
+             Title="Создание персонажа"
+             Style="{StaticResource Page}">
     <ContentPage.BindingContext>
         <local:CharacterCreationViewModel/>
     </ContentPage.BindingContext>
-    <ScrollView>
-        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <StackLayout>
-            <Label Text="Имя" />
-            <Entry Placeholder="Тёмный соблазн" x:Name="NameEntry"/>
+    <ScrollView WidthRequest="350">
+    <VerticalStackLayout>
+        <StackLayout>
+                <Label Text="Имя" BackgroundColor="{StaticResource Primary}" Padding="10" HorizontalOptions="Fill"/>
+                <Entry Placeholder="Тёмный соблазн" x:Name="NameEntry"/>
         </StackLayout>
         <Picker Title="Раса" x:Name="RacePicker"/>
         <Picker Title="Класс" x:Name="ClassPicker" SelectedIndexChanged="OpenClass"/>
@@ -20,12 +21,12 @@
         
         </StackLayout>
         <Picker Title="Происхождение" x:Name="OriginPicker" />
-        <Label Text="Распределение характеристик:" />
-        <StackLayout Orientation="Horizontal">
+        <Label Text="Распределение характеристик:" BackgroundColor="{StaticResource Primary}" HorizontalOptions="Fill" Padding="10" />
+            <StackLayout Orientation="Horizontal" BackgroundColor="{StaticResource Primary}" HorizontalOptions="Fill" Padding="10">
             <Label Text="Осталось: "/>
             <Label Text="{Binding Points}" x:Name="RemainedPoints"/>
         </StackLayout>
-        <Grid  HorizontalOptions="Fill">
+        <Grid Margin="10">
              <Grid.ColumnDefinitions>
                  <ColumnDefinition/>
                  <ColumnDefinition/>
@@ -36,39 +37,39 @@
                  <RowDefinition/>
              </Grid.RowDefinitions>
             <StackLayout Grid.Column="0" Grid.Row="0">
-                <Label Text="Сила" />
+                <Label Text="Сила" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="str"/>
-                <Label Text="{Binding Strength}" />
+                    <Label Text="{Binding Strength}" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="str"/>
              </StackLayout>
             <StackLayout Grid.Column="1" Grid.Row="0">
-                <Label Text="Ловкость" x:Name="Dexterity" />
+                    <Label Text="Ловкость" x:Name="Dexterity" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="dex" />
-                <Label Text="{Binding Dexterity}" />
+                    <Label Text="{Binding Dexterity}" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="dex" />
             </StackLayout>
             <StackLayout Grid.Column="2" Grid.Row="0">
-                <Label Text="Телосложение" x:Name="Constitution" />
+                    <Label Text="Телосл" x:Name="Constitution" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="con" />
-                <Label Text="{Binding Constitution}"/>
+                    <Label Text="{Binding Constitution}" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="con"/>
             </StackLayout>
             <StackLayout Grid.Column="0" Grid.Row="1">
-                <Label Text="Мудрость" x:Name="Wisdom" />
+                    <Label Text="Мудрость" x:Name="Wisdom" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="wis"/>
-                <Label Text="{Binding Wisdom}"/>
+                    <Label Text="{Binding Wisdom}" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="wis"/>
             </StackLayout>
             <StackLayout Grid.Column="1" Grid.Row="1">
-                <Label Text="Интеллект" x:Name="Intelligence" />
+                    <Label Text="Интеллект" x:Name="Intelligence" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="int" />
-                <Label Text="{Binding Intelligence}" />
+                    <Label Text="{Binding Intelligence}" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="int" />
             </StackLayout>
             <StackLayout Grid.Column="2" Grid.Row="1">
-                <Label Text="Харизма" x:Name="Charisma" />
+                    <Label Text="Харизма" x:Name="Charisma" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="+" Command="{Binding PlusCommand}" CommandParameter="cha" />
-                <Label Text="{Binding Charisma}" />
+                    <Label Text="{Binding Charisma}" BackgroundColor="{StaticResource Tertiary}" Padding="10"/>
                 <Button Text="-" Command="{Binding MinusCommand}" CommandParameter="cha" />
             </StackLayout>
         </Grid>

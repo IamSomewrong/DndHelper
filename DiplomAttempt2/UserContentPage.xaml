@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.UserContentPage"
-             
+             Style="{StaticResource Page}"
              Title="Пакеты">
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="CreatePackage">
@@ -19,7 +19,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Name}" />
+                        <Label Text="{Binding Name}" HorizontalOptions="Fill" BackgroundColor="{StaticResource Primary}" Padding="10"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

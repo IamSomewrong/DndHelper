@@ -5,5 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Style TargetType="Label">
         <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="FontFamily" Value="RalewayRegular"/>
+        <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
+    </Style>
+    <Style x:Key="Page" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{StaticResource Secondary}"/>
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource Tertiary}"/>
+    </Style>
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+        <Setter Property="FontFamily" Value="RalewayRegular"/>
+        <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
+        <Setter Property="FontSize" Value="20"/>
     </Style>
 </ResourceDictionary>

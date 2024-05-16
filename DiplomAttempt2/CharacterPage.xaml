@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiplomAttempt2.CharacterPage"
-             Title="СharacterPage">
+             Title="СharacterPage"
+             Style="{StaticResource Page}">
     <VerticalStackLayout>
         <FlexLayout Direction="Row" JustifyContent="SpaceEvenly" Margin="10">
             <ImageButton>
@@ -230,7 +231,8 @@
                              HorizontalOptions="Fill" 
                              VerticalOptions="Fill" 
                              BackgroundColor="{StaticResource Primary}"
-                             x:Name="CharismaLayout">
+                             x:Name="CharismaLayout"
+                             >
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="AbilityCheck"/>
                     </StackLayout.GestureRecognizers>

@@ -15,6 +15,7 @@ public partial class CharacterCreationPage : ContentPage
 	List<Race> _races = new List<Race>();
 	List<Class> _classes = new List<Class>();
 	List<Origin> _origins = new List<Origin>();
+	ResourceDictionary _globalResouces;
 	public CharacterCreationPage(IEnumerable<Character> characters)
     {
 		InitializeComponent();
@@ -30,7 +31,10 @@ public partial class CharacterCreationPage : ContentPage
  		RacePicker.ItemsSource = raceNames;
 		ClassPicker.ItemsSource = classNames;
 		OriginPicker.ItemsSource = originNames;
-	}
+
+		_globalResouces = Application.Current.Resources.MergedDictionaries.ToList()[0];
+
+    }
 
 	private void OpenClass(object sender, EventArgs e)
 	{
@@ -38,25 +42,37 @@ public partial class CharacterCreationPage : ContentPage
 		Class chosenClass = _classes[p.SelectedIndex];
 		_viewmodel.SkillsCount = chosenClass.SkillsCount;
 		ClassLayout.Children.Clear();
-		Label text = new Label() { Text = "Выбери " };
+		Label text = new Label() { Text = "Выбери "};
 		Label remain = new Label();
 		remain.SetBinding(Label.TextProperty, "SkillsCount");
-		ClassLayout.Children.Add(new StackLayout() { Children = { text, remain } });
+		ClassLayout.Children.Add(new StackLayout() { 
+			Children = { text, remain }, 
+			Orientation = StackOrientation.Horizontal, 
+			BackgroundColor = (Color)_globalResouces["Primary"],
+			HorizontalOptions = LayoutOptions.Fill,
+			Padding = 10
+		});
 		_viewmodel.SkillsChecked = new Dictionary<Skill, bool>();
 		foreach (Skill skill in chosenClass.Skills)
 		{
 			_viewmodel.SkillsChecked[skill] = false;
-			Label label = new Label() { Text = skill.ToString() };
-            CheckBox checkBox = new CheckBox();
+			Label label = new Label() { Text = skill.ToString(), HorizontalOptions = LayoutOptions.Fill};
+            CheckBox checkBox = new CheckBox() { Color = (Color)_globalResouces["Secondary"] };
 			checkBox.Behaviors.Add(new EventToCommandBehavior()
 			{
 				EventName = "CheckedChanged",
 				Command = _viewmodel.CheckSkillCommand,
 				CommandParameter = skill
 			});
-            StackLayout layout = new StackLayout() {
-				Children = { label, checkBox }, 
-				Orientation = StackOrientation.Horizontal};
+			StackLayout layout = new StackLayout()
+			{
+				Children = { checkBox, label },
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.Fill,
+				BackgroundColor = (Color)_globalResouces["Primary"],
+				Padding = 10
+				
+			};
 			ClassLayout.Children.Add(layout);
 		}
 		
