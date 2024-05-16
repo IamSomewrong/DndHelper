@@ -27,10 +27,7 @@ namespace DiplomAttempt2.ViewModels
         public int IntBonus { get => (Character.Abilities[Ability.Intelligence] - 10) / 2; }
         public int ChaBonus { get => (Character.Abilities[Ability.Charisma] - 10) / 2; }
         public int Initiative { get => DexBonus; }
-        public int PassivePerception
-        {
-            get => 10 + WisBonus + Character.SkillsProficiencies[Skill.Perception] * 2;
-        }
+        public int PassivePerception { get => 10 + WisBonus + Character.SkillsProficiencies[Skill.Perception] * 2; }
         public int MasteryBonus { get => 2 + (Character.Level - 1) / 4; }
         public int SpellAttack { get => MasteryBonus + WisBonus; }
         public int MeleeAttack { get => MasteryBonus + StrBonus; }
@@ -46,35 +43,40 @@ namespace DiplomAttempt2.ViewModels
             Character = character;
             IncrementHitsCommand = new Command
                 (
-                    execute: () =>
-                    {
-                        Character.Hits++;
-                        OnPropertyChanged();
-                        ContentManager.SaveCharacters();
-                        ((Command)IncrementHitsCommand).ChangeCanExecute();
-                        ((Command)DecrementHitsCommand).ChangeCanExecute();
-                    },
-                    canExecute: () =>
-                    {
-                        return Character.Hits < Character.MaxHits;
-                    }
+                    execute: () => ExecuteIncrement(),
+                    canExecute: () => CanExecuteIncrement()
                 );
             DecrementHitsCommand = new Command
                 (
-                    execute: () =>
-                    {
-                        Character.Hits--;
-                        OnPropertyChanged();
-                        ContentManager.SaveCharacters();
-                        ((Command)IncrementHitsCommand).ChangeCanExecute();
-                        ((Command)DecrementHitsCommand).ChangeCanExecute();
-                    },
-                    canExecute: () =>
-                    {
-                        return Character.Hits > 0;
-                    }
+                    execute: () => ExecuteDecrement(),
+                    canExecute: () => CanExecuteDecrement()
                 );
         }
+        private void ExecuteIncrement()
+        {
+            Character.Hits++;
+            OnPropertyChanged();
+            ContentManager.SaveCharacters();
+            ((Command)IncrementHitsCommand).ChangeCanExecute();
+            ((Command)DecrementHitsCommand).ChangeCanExecute();
+        }
+        private void ExecuteDecrement()
+        {
+            Character.Hits--;
+            OnPropertyChanged();
+            ContentManager.SaveCharacters();
+            ((Command)IncrementHitsCommand).ChangeCanExecute();
+            ((Command)DecrementHitsCommand).ChangeCanExecute();
+        }
+        private bool CanExecuteDecrement()
+        {
+            return Character.Hits > 0;
+        }
+        private bool CanExecuteIncrement()
+        {
+            return Character.Hits < Character.MaxHits;
+        }
+
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

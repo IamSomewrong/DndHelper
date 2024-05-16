@@ -4,10 +4,10 @@ using DiplomAttempt2.ViewModels;
 
 namespace DiplomAttempt2;
 
-public partial class СharacterPage : ContentPage
+public partial class CharacterPage : ContentPage
 {
 	CharacterViewModel _viewModel;
-	public СharacterPage(Character character)
+	public CharacterPage(Character character)
 	{
 		_viewModel = new CharacterViewModel(character);
 		BindingContext = _viewModel;

@@ -8,16 +8,16 @@ public partial class PlayerPage : ContentPage
     public PlayerPage()
 	{
 		InitializeComponent();
-		CharacterView.ItemsSource = App.Characters;
+		CharacterView.ItemsSource = ContentManager.Characters;
 	}
 
 	public async void CreateCharacter(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new CharacterCreationPage(App.Characters));
+		await Navigation.PushAsync(new CharacterCreationPage(ContentManager.Characters));
     }
 
     private async void CharacterView_ItemTapped(object sender, ItemTappedEventArgs e)
     {
-		await Navigation.PushAsync(new СharacterPage(App.Characters[e.ItemIndex]));
+		await Navigation.PushAsync(new CharacterPage(ContentManager.Characters[e.ItemIndex]));
     }
 }

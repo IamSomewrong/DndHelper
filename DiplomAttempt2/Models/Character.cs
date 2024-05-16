@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -22,11 +23,14 @@ namespace DiplomAttempt2.Models
         public int TempHits { get; set; } = 0;
         public Dictionary<Ability, int> Abilities { get; set;}
         public Dictionary<Ability, bool> AbilityProficiencies { get; set; }
-        public Dictionary<Ability, bool> Weapons { get; set; }
         public Dictionary<Skill, int> SkillsProficiencies { get; set;}
         
         public int Speed { get; set; }
         public bool Inspiration { get; set; } = false;
+        public ObservableCollection<Item> Inventory { get; set; }
+        public Armor Armor { get; set; }
+        public Weapon Hand1 { get; set; }
+        public Weapon Hand2 { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

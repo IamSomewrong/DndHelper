@@ -25,11 +25,7 @@ public partial class RacePage : ContentPage
     }
     private void OnAddSpellButtonClicked(object sender, EventArgs e)
     {
-        List<Spell> availableSpells = new List<Spell>();
-        foreach(Package item in App.Packages)
-        {
-            availableSpells = availableSpells.Concat(item.Spells).ToList();
-        }
+        List<Spell> availableSpells = ContentManager.GetAllSpells();
         // Ñîçäàíèå è íàñòðîéêà Picker äëÿ âûáîðà çàêëèíàíèÿ
         Picker spellPicker = new Picker
         {

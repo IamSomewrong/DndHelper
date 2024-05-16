@@ -8,13 +8,12 @@ namespace DiplomAttempt2
     public static class ContentManager
     {
         public static ObservableCollection<Package> Packages;
-        public static string[] _files = Directory.GetFiles(FileSystem.AppDataDirectory, "*.pckg");
+        static string[] _files = Directory.GetFiles(FileSystem.AppDataDirectory, "*.pckg");
         public static ObservableCollection<Character> Characters;
         static string charFile = FileSystem.AppDataDirectory + "/characters.json";
         public static void LoadData()
         {
             Packages = new ObservableCollection<Package>();
-
             if (_files.Length == 0)
             {
                 Package package = new Package()
@@ -41,8 +40,6 @@ namespace DiplomAttempt2
                     Packages.Add(package);
                 }
             }
-
-
             try
             {
                 var data = File.ReadAllText(charFile);
@@ -92,6 +89,33 @@ namespace DiplomAttempt2
             foreach (Package package in Packages)
             {
                 list = list.Concat(package.Origins).ToList();
+            }
+            return list;
+        }
+        public static void CreatePackage(string name)
+        {
+            Package package = new Package()
+            {
+                Name = name,
+                Classes = new ObservableCollection<Class>(),
+                Races = new ObservableCollection<Race>(),
+                Items = new ObservableCollection<Item>(),
+                Enemies = new ObservableCollection<Enemy>(),
+                Spells = new ObservableCollection<Spell>(),
+                Feats = new ObservableCollection<Feat>(),
+                Origins = new ObservableCollection<Origin>(),
+            };
+            Packages.Add(package);
+            var writeData = JsonSerializer.Serialize(package);
+            File.WriteAllText(FileSystem.AppDataDirectory + "/" + name + ".pckg", writeData);
+        }
+
+        internal static List<Spell> GetAllSpells()
+        {
+            var list = new List<Spell>();
+            foreach (Package package in Packages)
+            {
+                list = list.Concat(package.Spells).ToList();
             }
             return list;
         }

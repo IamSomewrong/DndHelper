@@ -9,7 +9,7 @@ public partial class UserContentPage : ContentPage
     public UserContentPage()
 	{
 		InitializeComponent();
-        PackageView.ItemsSource = App.Packages;
+        PackageView.ItemsSource = ContentManager.Packages;
     }
 
     private async void CreatePackage(object sender, EventArgs e)
@@ -18,35 +18,11 @@ public partial class UserContentPage : ContentPage
         string name = await DisplayPromptAsync("Создание пакета", "Введите название:");
         if(!String.IsNullOrWhiteSpace(name))
         {
-            Package package = new Package() { 
-                Name = name,
-                Classes = new ObservableCollection<Class>(),
-                Races = new ObservableCollection<Race>(),
-                Items = new ObservableCollection<Item>(),
-                Enemies = new ObservableCollection<Enemy>(),
-                Spells = new ObservableCollection<Spell>(),
-                Feats = new ObservableCollection<Feat>(),
-                Origins = new ObservableCollection<Origin>(),
-            };
-            App.Packages.Add(package);
-            var writeData = JsonSerializer.Serialize(package);
-            File.WriteAllText(FileSystem.AppDataDirectory + "/" + name + ".pckg", writeData);
+            ContentManager.CreatePackage(name);
         }        
     }
     private async void ChoosePackage(object sender, ItemTappedEventArgs e)
     {
-        //if(!_editMode)
-            await Navigation.PushAsync(new PackagePage(App.Packages[e.ItemIndex]));
-        //else
-        //{
-
-        //}
-
+        await Navigation.PushAsync(new PackagePage(ContentManager.Packages[e.ItemIndex]));
     }
-
-    //private void EnableEditMode(object sender, EventArgs e)
-    //{
-    //    EditModeImage.Color = _editMode ? new Color(230, 230, 225) : new Color(80, 80, 10);
-    //    _editMode = !_editMode;
-    //}
 }

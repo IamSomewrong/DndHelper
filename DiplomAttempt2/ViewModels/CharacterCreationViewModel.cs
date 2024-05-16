@@ -29,156 +29,159 @@ namespace DiplomAttempt2.ViewModels
         {
             PlusCommand = new Command<string>
                 (
-                    execute: (string arg) =>
-                    {
-                        switch (arg)
-                        {
-                            case "str":
-                                if(Strength < 15)
-                                {
-                                    Strength++; Points--;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Strength"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "dex":
-                                if (Dexterity < 15)
-                                {
-                                    Dexterity++; Points--;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Dexterity"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "con":
-                                if (Constitution < 15)
-                                {
-                                    Constitution++; Points--;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Constitution"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "wis":
-                                if (Wisdom < 15)
-                                {
-                                    Wisdom++; Points--;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Wisdom"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "int":
-                                if (Intelligence < 15)
-                                {
-                                    Intelligence++; Points--;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Intelligence"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "cha":
-                                if (Charisma < 15)
-                                {
-                                    Charisma++; Points--;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Charisma"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                        }
-                        ((Command)PlusCommand).ChangeCanExecute();
-                        ((Command)MinusCommand).ChangeCanExecute();
-
-                    },
-                    canExecute: (string arg) =>
-                    {
-                        return Points > 0;
-                    }
+                    execute: (string arg) => ExecutePlus(arg),
+                    canExecute: (string arg) => CanExecutePlus(arg)
                 );
 
             MinusCommand = new Command<string>
                 (
-                    execute: (string arg) =>
-                    {
-                        switch (arg)
-                        {
-                            case "str":
-                                if (Strength > 8)
-                                {
-                                    Strength--; Points++;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Strength"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "dex":
-                                if (Dexterity > 8)
-                                {
-                                    Dexterity--; Points++;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Dexterity"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "con":
-                                if (Constitution > 8)
-                                {
-                                    Constitution--; Points++;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Constitution"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "wis":
-                                if (Wisdom > 8)
-                                {
-                                    Wisdom--; Points++;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Wisdom"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "int":
-                                if (Intelligence > 8)
-                                {
-                                    Intelligence--; Points++;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Intelligence"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                            case "cha":
-                                if (Charisma > 8)
-                                {
-                                    Charisma--; Points++;
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Charisma"));
-                                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
-                                };
-                                break;
-                        }
-                        ((Command)PlusCommand).ChangeCanExecute();
-                        ((Command)MinusCommand).ChangeCanExecute();
-
-                    },
-                    canExecute: (string arg) =>
-                    {
-                        return Points < 27;
-                    }
+                    execute: (string arg) => ExecuteMinus(arg),
+                    canExecute: (string arg) => CanExecuteMinus(arg)
                 );
             CheckSkillCommand = new Command<Skill>
                 (
-                    execute: (Skill skill) => 
-                    {
-                        if (SkillsChecked[skill])
-                        {
-                            SkillsCount++;
-                            SkillsChecked[skill] = false;
-                        }
-                        else
-                        {
-                            SkillsCount--;
-                            SkillsChecked[skill] = true;
-                        }
-                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SkillsCount"));
-                        ((Command)CheckSkillCommand).ChangeCanExecute();
-                    },
-                    canExecute: (Skill skill) =>
-                    {
-                        return (SkillsCount > 0) || (SkillsCount == 0 && SkillsChecked[skill]);
-                    }
-
+                    execute: (Skill skill) => ExecuteCheckSkill(skill),
+                    canExecute: (Skill skill) => CanExecuteCheckSkill(skill)
                 );
+        }
+        private void ExecutePlus(string arg)
+        {
+            switch (arg)
+            {
+                case "str":
+                    if (Strength < 15)
+                    {
+                        Strength++; Points--;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Strength"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "dex":
+                    if (Dexterity < 15)
+                    {
+                        Dexterity++; Points--;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Dexterity"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "con":
+                    if (Constitution < 15)
+                    {
+                        Constitution++; Points--;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Constitution"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "wis":
+                    if (Wisdom < 15)
+                    {
+                        Wisdom++; Points--;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Wisdom"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "int":
+                    if (Intelligence < 15)
+                    {
+                        Intelligence++; Points--;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Intelligence"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "cha":
+                    if (Charisma < 15)
+                    {
+                        Charisma++; Points--;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Charisma"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+            }
+                        ((Command)PlusCommand).ChangeCanExecute();
+            ((Command)MinusCommand).ChangeCanExecute();
+        }
+        private bool CanExecutePlus(string arg)
+        {
+            return Points > 0;
+        }
+        private void ExecuteMinus(string arg)
+        {
+            switch (arg)
+            {
+                case "str":
+                    if (Strength > 8)
+                    {
+                        Strength--; Points++;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Strength"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "dex":
+                    if (Dexterity > 8)
+                    {
+                        Dexterity--; Points++;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Dexterity"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "con":
+                    if (Constitution > 8)
+                    {
+                        Constitution--; Points++;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Constitution"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "wis":
+                    if (Wisdom > 8)
+                    {
+                        Wisdom--; Points++;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Wisdom"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "int":
+                    if (Intelligence > 8)
+                    {
+                        Intelligence--; Points++;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Intelligence"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+                case "cha":
+                    if (Charisma > 8)
+                    {
+                        Charisma--; Points++;
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Charisma"));
+                        PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Points"));
+                    };
+                    break;
+            }
+                        ((Command)PlusCommand).ChangeCanExecute();
+            ((Command)MinusCommand).ChangeCanExecute();
+        }
+        private bool CanExecuteMinus(string arg)
+        {
+            return Points < 27;
+        }
+        private void ExecuteCheckSkill(Skill skill)
+        {
+            if (SkillsChecked[skill])
+            {
+                SkillsCount++;
+                SkillsChecked[skill] = false;
+            }
+            else
+            {
+                SkillsCount--;
+                SkillsChecked[skill] = true;
+            }
+            PropertyChanged.Invoke(this, new PropertyChangedEventArgs("SkillsCount"));
+            ((Command)CheckSkillCommand).ChangeCanExecute();
+        }
+        private bool CanExecuteCheckSkill(Skill skill)
+        {
+            return (SkillsCount > 0) || (SkillsCount == 0 && SkillsChecked[skill]);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace DiplomAttempt2.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public ObservableCollection<(string, string)> Traits { get; set; }
+        public ObservableCollection<Trait> Traits { get; set; }
     }
 }

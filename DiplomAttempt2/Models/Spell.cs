@@ -9,5 +9,7 @@ namespace DiplomAttempt2.Models
     public class Spell
     {
         public string Name { get; set; }
+        public string Description { get; set; }
+        public int Level { get; set; }
     }
 }
