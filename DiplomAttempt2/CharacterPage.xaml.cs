@@ -85,55 +85,99 @@ public partial class CharacterPage : ContentPage
         }
         else
         {
-            if ((StackLayout)sender == StrengthLayout)
+            StackLayout control = (StackLayout)sender;
+
+            Dictionary<StackLayout, Ability> controlToAbility = new Dictionary<StackLayout, Ability>()
             {
-                int masteryBonus = _viewModel.Character.AbilityProficiencies[Ability.Strength] ? 2 : 0;
-                int finalResult = result + _viewModel.StrBonus + masteryBonus;
-                string outp = result.ToString() + " + " + _viewModel.StrBonus.ToString() + 
-                    " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
-                DisplayAlert("Бросок проверки силы", outp, "Окей");
-            }
-            if ((StackLayout)sender == DexterityLayout)
+                { StrengthLayout, Ability.Strength},
+                { DexterityLayout, Ability.Dexterity},
+                { ConstitutionLayout, Ability.Constitution},
+                { WisdomLayout, Ability.Wisdom},
+                { IntelligenceLayout, Ability.Intelligence},
+                { CharismaLayout, Ability.Charisma}
+            };
+            Dictionary<StackLayout, int> controlToAbilityBonus = new Dictionary<StackLayout, int>()
             {
-                int masteryBonus = _viewModel.Character.AbilityProficiencies[Ability.Dexterity] ? 2 : 0;
-                int finalResult = result + _viewModel.DexBonus + masteryBonus;
-                string outp = result.ToString() + " + " + _viewModel.DexBonus.ToString() +
-                    " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
-                DisplayAlert("Бросок проверки ловкости", outp, "Окей");
-            }
-            if ((StackLayout)sender == ConstitutionLayout)
-            {
-                int masteryBonus = _viewModel.Character.AbilityProficiencies[Ability.Constitution] ? 2 : 0;
-                int finalResult = result + _viewModel.ConBonus + masteryBonus;
-                string outp = result.ToString() + " + " + _viewModel.ConBonus.ToString() +
-                    " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
-                DisplayAlert("Бросок проверки телосложения", outp, "Окей");
-            }
-            if ((StackLayout)sender == WisdomLayout)
-            {
-                int masteryBonus = _viewModel.Character.AbilityProficiencies[Ability.Wisdom] ? 2 : 0;
-                int finalResult = result + _viewModel.WisBonus + masteryBonus;
-                string outp = result.ToString() + " + " + _viewModel.WisBonus.ToString() +
-                    " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
-                DisplayAlert("Бросок проверки мудрости", outp, "Окей");
-            }
-            if ((StackLayout)sender == IntelligenceLayout)
-            {
-                int masteryBonus = _viewModel.Character.AbilityProficiencies[Ability.Intelligence] ? 2 : 0;
-                int finalResult = result + _viewModel.IntBonus + masteryBonus;
-                string outp = result.ToString() + " + " + _viewModel.IntBonus.ToString() +
-                    " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
-                DisplayAlert("Бросок проверки интеллекта", outp, "Окей");
-            }
-            if ((StackLayout)sender == CharismaLayout)
-            {
-                int masteryBonus = _viewModel.Character.AbilityProficiencies[Ability.Charisma] ? 2 : 0;
-                int finalResult = result + _viewModel.ChaBonus + masteryBonus;
-                string outp = result.ToString() + " + " + _viewModel.ChaBonus.ToString() +
-                    " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
-                DisplayAlert("Бросок проверки харизмы", outp, "Окей");
-            }
+                { StrengthLayout, _viewModel.StrBonus},
+                { DexterityLayout, _viewModel.DexBonus},
+                { ConstitutionLayout, _viewModel.ConBonus},
+                { WisdomLayout, _viewModel.WisBonus},
+                { IntelligenceLayout, _viewModel.IntBonus},
+                { CharismaLayout, _viewModel.ChaBonus}
+            };
+
+            int masteryBonus = _viewModel.Character.AbilityProficiencies[controlToAbility[control]] ? _viewModel.MasteryBonus : 0;
+            int finalResult = result + controlToAbilityBonus[control] + masteryBonus;
+            string outp = result.ToString() + " + " + controlToAbilityBonus[control].ToString() +
+                " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
+            DisplayAlert("Бросок проверки характеристики " + controlToAbility[control].ToString(), outp, "Окей");
         }
         
+    }
+
+    private void SkillCheck(object sender, TappedEventArgs e)
+    {
+        int result = Random.Shared.Next(1, 21);
+        if (result == 1)
+        {
+            DisplayAlert("Бросок проверки способности", result.ToString() + " - критический провал!", "Окей");
+        }
+        else if (result == 20)
+        {
+            DisplayAlert("Бросок проверки способности", result.ToString() + " - критическая удача!", "Окей");
+        }
+        else
+        { 
+            FlexLayout control = (FlexLayout) sender;
+
+            Dictionary<FlexLayout, Skill> controlToSkill = new Dictionary<FlexLayout, Skill>()
+            {
+                { AcrobaticsLayout, Skill.Acrobatics},
+                { AthleticsLayout, Skill.Athletics},
+                { ArcanaLayout, Skill.Arcana},
+                { AnimalHandlingLayout, Skill.AnimalHandling},
+                { DeceptionLayout, Skill.Deception},
+                { HistoryLayout, Skill.History},
+                { InsightLayout, Skill.Insight},
+                { IntimidationLayout, Skill.Intimidation},
+                { InvestigationLayout, Skill.Investigation},
+                { MedicineLayout, Skill.Medicine},
+                { NatureLayout, Skill.Nature },
+                { PerceptionLayout, Skill.Perception},
+                { PerformanceLayout, Skill.Performance},
+                { PersuasionLayout, Skill.Persuasion},
+                { ReligionLayout, Skill.Religion},
+                { SleightOfHandLayout, Skill.SleightOfHand },
+                { StealthLayout, Skill.Stealth },
+                { SurvivalLayout, Skill.Survival }
+            };
+            Dictionary<FlexLayout, int> controlToAbilityBonus = new Dictionary<FlexLayout, int>()
+            {
+                {AcrobaticsLayout, _viewModel.DexBonus },
+                { AthleticsLayout, _viewModel.StrBonus},
+                { ArcanaLayout, _viewModel.IntBonus},
+                { AnimalHandlingLayout, _viewModel.WisBonus},
+                { DeceptionLayout, _viewModel.ChaBonus},
+                { HistoryLayout, _viewModel.IntBonus},
+                { InsightLayout, _viewModel.IntBonus},
+                { IntimidationLayout, _viewModel.ChaBonus},
+                { InvestigationLayout, _viewModel.WisBonus},
+                { MedicineLayout, _viewModel.WisBonus},
+                { NatureLayout, _viewModel.IntBonus },
+                { PerceptionLayout, _viewModel.WisBonus},
+                { PerformanceLayout, _viewModel.ChaBonus},
+                { PersuasionLayout, _viewModel.WisBonus},
+                { ReligionLayout, _viewModel.IntBonus},
+                { SleightOfHandLayout, _viewModel.DexBonus },
+                { StealthLayout, _viewModel.DexBonus },
+                { SurvivalLayout, _viewModel.WisBonus }
+            };
+
+            int masteryBonus = _viewModel.Character.SkillsProficiencies[controlToSkill[control]] * _viewModel.MasteryBonus;
+            int finalResult = result + controlToAbilityBonus[control] + masteryBonus;
+            string outp = result.ToString() + " + " + controlToAbilityBonus[control].ToString() +
+                " + " + masteryBonus.ToString() + " = " + finalResult.ToString();
+            DisplayAlert("Бросок проверки способности " + controlToSkill[control].ToString(), outp, "Окей");
+        }
     }
 }
