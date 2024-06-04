@@ -18,6 +18,6 @@ public partial class PlayerPage : ContentPage
 
     private async void CharacterView_ItemTapped(object sender, ItemTappedEventArgs e)
     {
-		await Navigation.PushAsync(new CharacterPage(ContentManager.Characters[e.ItemIndex]));
+		await Navigation.PushAsync(new TabbedCharacterPage(ContentManager.Characters[e.ItemIndex]));
     }
 }

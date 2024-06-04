@@ -4,17 +4,23 @@ using DiplomAttempt2.ViewModels;
 
 namespace DiplomAttempt2;
 
-public partial class CharacterPage : ContentPage
+public partial class CharacterPage : ContentPage, ICharacterPage
 {
 	CharacterViewModel _viewModel;
-	public CharacterPage(Character character)
+
+    public Character character { get; set; }
+
+    public CharacterPage()
 	{
-		_viewModel = new CharacterViewModel(character);
-		BindingContext = _viewModel;
         InitializeComponent();
-        Title = _viewModel.Character.Name;
     }
 
+    public void Initialize()
+    {
+        _viewModel = new CharacterViewModel(character);
+        BindingContext = _viewModel;
+        Title = _viewModel.Character.Name;
+    }
     
 
     private void DexterityAttackTapped(object sender, TappedEventArgs e)
